@@ -3,8 +3,22 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://ehaverin.users.cs.helsinki.fi/reseptipankki/)
-* [Linkki dokumentaatiooni](https://github.com/wirefox/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+* [Linkki dokumentaatiooni](https://github.com/wirefox/reseptipankki/blob/master/doc/dokumentaatio.pdf)
 
 ## Työn aihe
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+Reseptipankki
+
+Reseptipankki sisältää reseptejä ruokalajeista. Jokainen resepti kuuluu yhteen tai useampaan kategoriaan (alkuruoka, keitto, salaatti, pääruoka, lisukeruoka, väli- tai jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje vaiheittain. Ohjeita voi hakea ruokalajin nimen, raaka-aineen tai ruokalajikategorian perusteella. Käyttäjä voi lisätä reseptejä suosikeikseen/omalle listalle, ja hän voi tehdä valitusta resepteistä ostoslistan (optio).
+
+Toimintoja:
+
+* raaka-aineen syöttö ja muutos
+* raaka-aineen poisto (vain mikäli sitä ei käytetä)
+* ruokalajikategorian lisääminen ja muutos
+* ruokalajikategorian poisto (vain mikäli sitä ei käytetä)
+* reseptin lisäys
+* reseptin muokkaus ja poisto
+* reseptin haku
+* reseptien katselu
+* ostoslistan teko valitun tai valittujen reseptien perusteella

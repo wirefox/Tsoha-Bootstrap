@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Muokkaa reseptiä Thai-lohikeitto</h1>
+
+<form>
+
+    <div class="form-group">
+        <label>Ruokalaji</label>
+        <input class="form-control" value="Thai-lohikeitto" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Kategoria</label><br>
+        <select class="selectpicker">
+            <option>Alkuruoat</option>
+            <option>Pääruoat</option>
+            <option>Jälkiruoat</option>
+            <option>Keitot</option>
+            <option>Salaatit</option>
+            <option>Kastikkeet</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Lähde</label>
+        <input class="form-control" value="https://www.yhteishyva.fi/ruoka-ja-reseptit/reseptit/thai-lohikeitto/01833" type="text">
+    </div>
+    <div class="form-group">
+        <label>Kuvan lähde</label>
+        <input class="form-control" value="https://sipa.s-palvelut.fi/?url=https%3A%2F%2Fwww.yhteishyva.fi%2Fimage%2Fimage_gallery%3Fuuid%3Df71a231b-75b9-46dd-be7b-d8db927d8006%3B%3A%3BgroupId%3D18010%3B%3A%3Bt%3D1349244268178&maxWidth=440&maxHeight=330&highDensity=true&checksum=3b2456a7d14191a517854e76e4f7c94d" type="text">
+    </div>
+    <div class="form-group">
+        <label>Annosmäärä</label>
+        <input class="form-control" value="4" type="text">
+    </div>   
+    <div class="form-group">
+        <label>Raaka-aineet</label>
+        <textarea class="form-control">1 rkl öljyä, 1 pussi (450 g) itämaisia vokkivihanneksia (pakaste), 2,5 rkl punaista currytahnaa, 6 dl vettä, 1 kalaliemikuutio, 2 dl kookosmaitoa, 400 g lohifileetä, 2 dl pakastekatkarapuja </textarea>
+    </div>
+    <div class="form-group">
+        <label>Ohjeet</label>
+        <textarea class="form-control">Kuumenna pannulla öljy ja lisää joukkoon jäiset pakastevihannekset. Paista kasviksia reilu 5 minuuttia, kunnes neste on melkein haihtunut kasviksista. Lisää joukkoon currytahna ja kääntele sekaisin. Kuumenna kattilassa vesi, kalaliemikuutio ja kookosmaito. Poista lohesta ruodot ja nahka ja leikkaa kuutioiksi. Lisää kattilaan lohipalat ja kasvikset ja anna keiton kiehua 5 minuuttia, kunnes kalat ovat kypsiä. Lisää joukkoon katkaravut ja anna keiton kiehahtaa.</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+</form>
+{% endblock %}

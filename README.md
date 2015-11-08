@@ -14,7 +14,7 @@ Yleisiä linkkejä:
 
 Reseptipankki
 
-Reseptipankki sisältää reseptejä ruokalajeista. Jokainen resepti kuuluu yhteen tai useampaan kategoriaan (alkuruoka, keitto, salaatti, pääruoka, lisukeruoka, väli- tai jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje vaiheittain. Ohjeita voi hakea ruokalajin nimen, raaka-aineen tai ruokalajikategorian perusteella. Käyttäjä voi lisätä reseptejä suosikeikseen/omalle listalle, ja hän voi tehdä valitusta resepteistä ostoslistan (optio). Resepteissä voi olla kuva valmiista ruoka-annoksesta (optio).
+Reseptipankki sisältää reseptejä ruokalajeista. Jokainen resepti kuuluu yhteen kategoriaan (alkuruoka, keitto, salaatti, pääruoka, jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje. Ohjeita voi hakea ruokalajin nimen, raaka-aineen tai ruokalajikategorian perusteella. Käyttäjä voi lisätä reseptejä suosikeikseen/omalle listalle, ja hän voi tehdä valitusta resepteistä ostoslistan (optio). Resepteissä voi olla kuva valmiista ruoka-annoksesta (optio).
 
 Toimintoja:
 
@@ -26,4 +26,4 @@ Toimintoja:
 * reseptin muokkaus ja poisto
 * reseptin haku
 * reseptien katselu
-* ostoslistan teko valitun tai valittujen reseptien perusteella
+* ostoslistan teko valitun tai valittujen reseptien perusteella (optio)

@@ -28,12 +28,12 @@ CREATE TABLE Resepti
     nimi varchar(30) NOT NULL,
     kategoria INTEGER REFERENCES Kategoria(id),
     annoksia INTEGER,
-    raaka_aine INTEGER REFERENCES Raaka_aine(id),
     valmistusohje varchar(3000),
     kuva varchar(300),
     lahde varchar(300),
     lisayspvm DATE,
-    muokkauspvm DATE
+    muokkauspvm DATE,
+    CONSTRAINT fk_kategoria FOREIGN KEY (kategoria) REFERENCES Kategoria(id)
 );
 
 CREATE TABLE Reseptin_raakaAine
@@ -42,5 +42,5 @@ CREATE TABLE Reseptin_raakaAine
     raakaAine_id INTEGER REFERENCES Raaka_aine(id) ON UPDATE CASCADE,
     maara INTEGER NOT NULL,
     yksikko varchar(10) NOT NULL,
-    CONSTRAINT Reseptin_raakaAine_pkey PRIMARY KEY (resepti_id, raakaAine_id)
+    CONSTRAINT pk_Reseptin_raakaAine PRIMARY KEY (resepti_id, raakaAine_id)
 );

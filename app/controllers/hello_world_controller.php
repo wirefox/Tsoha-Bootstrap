@@ -1,5 +1,7 @@
 <?php
 
+require 'app/models/recipe.php';
+
 class HelloWorldController extends BaseController {
 
     public static function index() {
@@ -10,7 +12,12 @@ class HelloWorldController extends BaseController {
     public static function sandbox() {
         // Testaa koodiasi täällä
         //echo 'Hello World!';
-        View::make('helloworld.html');
+        //View::make('helloworld.html');
+        $resepti = Resepti::find(1);
+        $reseptit = Resepti::all();
+        // Kint-luokan dump-metodi tulostaa muuttujan arvon
+        Kint::dump($reseptit);
+        Kint::dump($resepti);
     }
 
     public static function recipe_list() {

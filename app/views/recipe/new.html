@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Lisää uusi resepti</h1>
+
+<form method="post" action="{{base_path}}/recipe">
+    <div class="form-group">
+        <label>Nimi</label>
+        <input type="text" name="nimi" class="form-control"> 
+    </div>
+
+    <div class="form-group">
+        <label>Kategoria</label>
+        <select class="form-control" name="kategoria">
+            <option>Valitse...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <!--            <option value="Alkuruuat">Alkuruuat</option>
+                        <option value="Keitot">Keitot</option>
+                        <option value="Salaatit">Salaatit</option>
+                        <option value="Pääruuat">Pääruuat</option>
+                        <option value="Jälkiruuat">Jälkiruuat</option>
+                        <option value="Suolaiset leivonnaiset">Suolaiset leivonnaiset</option>  
+                        <option value="Makeat leivonnaiset">Makeat leivonnaiset</option>  -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Annoksia</label>
+        <input type="number" name="annoksia" class="form-control">
+    </div>
+
+    <h3>Ainesosat</h3>
+
+    <!-- EI VOI VIELÄ TOTEUTTAA; RAAKA-AINE-CONTROLLERI JA REITTI PUUTTUU
+        <div class="form-group">
+            <label>Määrä</label>
+            <input type="text" name="maara" class="form-control">
+        </div>
+    
+        <div class="form-group">
+            <label>Yksikkö</label>
+            <select class="form-control" name="yksikko">
+                <option>Valitse...</option>
+                <option value="tl">tl</option>
+                <option value="rkl">rkl</option>
+                <option value="dl">dl</option>
+                <option value="l">l</option>
+                <option value="g">g</option>
+                <option value="kg">kg</option>
+                <option value="ripaus">ripaus</option>
+                <option value="kpl">kpl</option>
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label>Raaka-aine</label>
+            <select class="form-control" name="raaka_aine">
+                            
+                            Toteutetaan jotenkin näin, sitten kun raaka-aineet saadaan tuotua listaksi
+                            {% if reseptin_raakaAine.id != null %}
+                            <option value="{{reseptin_raakaAine.raaka_aine}}">{{reseptin_raakaAine.raaka_aine}}</option>
+                            {% endif %}
+                            {% for aine in aineet %}
+                            <option value="{{aine.nimi}}">{{aine.nimi}}</option>
+                            {% endfor %}
+                <option>Valitse...</option>
+                <option value="vehnäjauho">vehnäjauho</option>
+                <option value="kevytmaito">kevytmaito</option>
+            </select>
+        </div>-->
+
+    <h3>Valmistusohjeet</h3>
+
+    <div class="form-group">
+        <label>Tee näin:</label>
+        <input type="text" name="valmistusohje" class="form-control">
+    </div>
+
+    <h3>Reseptin ja ruokakuvan lähde</h3>
+
+    <div class="form-group">
+        <label>Kuvan lähde</label>
+        <input type="url" name="kuva" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Reseptin lähde</label>
+        <input type="url" name="lahde" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Lisää</button>
+    </div>
+
+    <button type="button" onclick="alert(':)')">Smile!</button>
+
+</form>
+
+{% endblock %}

@@ -24,15 +24,10 @@ class Resepti extends BaseModel {
 
         foreach ($rows as $row) {
             $reseptit[] = new Resepti(array(
-                'id' => $row['id'],
                 'nimi' => $row['nimi'],
                 'kategoria' => $row['kategoria'],
-                'annoksia' => $row['annoksia'],
-                'valmistusohje' => $row['valmistusohje'],
-                'kuva' => $row['kuva'],
                 'lahde' => $row['lahde'],
                 'lisayspvm' => $row['lisayspvm'],
-                'muokkauspvm' => $row['muokkauspvm'],
             ));
         }
 
@@ -58,6 +53,21 @@ class Resepti extends BaseModel {
             return $resepti;
         }
         return null;
+    }
+
+    public function save() {
+        $query = DB::connection()->prepare
+                ('INSERT INTO Resepti (nimi, kategoria, annoksia, valmistusohje, kuva, lahde, lisayspvm, muokkauspvm) '
+                . 'VALUES (:nimi, :kategoria, :annoksia, :valmistusohje, :kuva, :lahde, NOW(), NOW()) RETURNING id');
+        $query->execute(array(
+            'nimi' => $this->nimi,
+            'kategoria' => $this->kategoria,
+            'annoksia' => $this->annoksia,
+            'valmistusohje' => $this->valmistusohje,
+            'kuva' => $this->kuva,
+            'lahde' => $this->lahde));
+        $row = $query->fetch();
+        $this->id = $row['id'];
     }
 
 }

@@ -5,8 +5,8 @@ INSERT INTO KAYTTAJA (etunimi, sukunimi, kayttajatunnus, salasana, rooli)
 INSERT INTO KAYTTAJA (etunimi, sukunimi, kayttajatunnus, salasana, rooli) 
     VALUES ('Elina', 'Testaaja', '1234699', '55556', '1');
 
-INSERT INTO RAAKA_AINE (nimi) VALUES ('vehnäjauho');
-INSERT INTO RAAKA_AINE (nimi) VALUES ('maito');
+INSERT INTO RAAKA_AINE (nimi, ravintoarvo) VALUES ('vehnäjauho', 'http://www.fineli.fi/food.php?foodid=110&lang=fi');
+INSERT INTO RAAKA_AINE (nimi, ravintoarvo) VALUES ('kevytmaito', 'http://www.fineli.fi/food.php?foodid=684&lang=fi');
 
 INSERT INTO KATEGORIA (nimi) VALUES ('makea leivonnainen');
 INSERT INTO KATEGORIA (nimi) VALUES ('suolainen leivonnainen');

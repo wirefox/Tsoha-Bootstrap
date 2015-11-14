@@ -13,7 +13,8 @@ CREATE TABLE Kayttaja
 CREATE TABLE Raaka_aine
 (
     id SERIAL PRIMARY KEY,
-    nimi varchar(30) NOT NULL
+    nimi varchar(30) NOT NULL,
+    ravintoarvo varchar(300)                       -- linkki fineli.fi, esim. http://www.fineli.fi/food.php?foodid=110&lang=fi
 );
 
 CREATE TABLE Kategoria

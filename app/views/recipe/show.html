@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{recipe.nimi}}   {{recipe.kategoria}}</h1>
+<h3> {{recipe.annoksia}} 
+    {% if recipe.annoksia == 1 %} annos
+    {% else %} annosta
+    {% endif %}
+</h3>
+
+<p>
+    <a href="{{base_path}}/recipe/edit" class="btn btn-success">Muokkaa reseptiä</a>
+    <a href="{{base_path}}/recipe/new" class="btn btn-success">Lisää resepti</a>
+</p>
+
+<img alt="{{recipe.nimi}}" width="300" height="200" class="img-thumbnail" src="{{recipe.kuva}}">
+
+<h2>Ainekset</h2>
+
+<!--<ul>
+    {% for reseptin_raakaAine in reseptin_raakaAineet %}
+    <li><strong>{{reseptin_raakaAine.maara}}</strong> {{reseptin_raakaAine.yksikko}}a</li>
+    {% endfor %}
+</ul>-->
+
+<h2>Valmistusohjeet</h2>
+
+<ol>
+    <li></li>
+</ol>
+<br>
+<footer><strong>Lähde: </strong> <a href="{{recipe.lahde}}">{{recipe.lahde}}</a><br>
+    <strong>Lisätty: </strong>{{recipe.lisatty}}</footer>
+{% endblock %}

@@ -19,22 +19,21 @@ CREATE TABLE Raaka_aine
 
 CREATE TABLE Kategoria
 (
-    id SERIAL PRIMARY KEY,
-    nimi varchar(30) NOT NULL
+    nimi varchar(30) PRIMARY KEY
 );
 
 CREATE TABLE Resepti
 (
     id SERIAL PRIMARY KEY,
     nimi varchar(30) NOT NULL,
-    kategoria INTEGER REFERENCES Kategoria(id),
+    kategoria varchar(30) REFERENCES Kategoria(nimi),
     annoksia INTEGER,
     valmistusohje varchar(3000),
     kuva varchar(300),
     lahde varchar(300),
     lisayspvm DATE,
     muokkauspvm DATE,
-    CONSTRAINT fk_kategoria FOREIGN KEY (kategoria) REFERENCES Kategoria(id)
+    CONSTRAINT fk_kategoria FOREIGN KEY (kategoria) REFERENCES Kategoria(nimi)
 );
 
 CREATE TABLE Reseptin_raakaAine

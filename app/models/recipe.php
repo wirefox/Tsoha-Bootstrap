@@ -24,10 +24,15 @@ class Resepti extends BaseModel {
 
         foreach ($rows as $row) {
             $reseptit[] = new Resepti(array(
+                'id' => $row['id'],
                 'nimi' => $row['nimi'],
                 'kategoria' => $row['kategoria'],
+                'annoksia' => $row['annoksia'],
+                'valmistusohje' => $row['valmistusohje'],
+                'kuva' => $row['kuva'],
                 'lahde' => $row['lahde'],
                 'lisayspvm' => $row['lisayspvm'],
+                'muokkauspvm' => $row['muokkauspvm']
             ));
         }
 

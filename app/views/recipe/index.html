@@ -18,12 +18,13 @@
             <th>Lisätty</th>
             <th></th>
         </tr>
-    </thead>
+    </thead>   
 
     <tbody>
         {% for resepti in reseptit %}
         <tr>
-            <td><a href="{{base_path}}/recipe/{{resepti.id}}">{{resepti.nimi}}</a></td>
+
+            <td><a href="{{base_path}}/recipe/{{resepti.id}}">{{resepti.nimi}}</td>
             <td>{{resepti.kategoria}}</td>
             <td><a href="{{resepti.lahde}}">{{resepti.lahde}}</a></td>
             <!--            <td>{{resepti.lahde}}</td>-->

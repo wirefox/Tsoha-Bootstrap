@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if message %}
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endif %}
+
 <h1>{{recipe.nimi}}</h1>
 <h3>{{recipe.kategoria}}</h3>
 <h3> {{recipe.annoksia}} 
@@ -10,8 +16,8 @@
 </h3>
 
 <p>
-    <a href="{{base_path}}/recipe/#{recipe.id}/edit" class="btn btn-success">Muokkaa reseptiä</a>
-    <a href="{{base_path}}/recipe/#{recipe.id}/new" class="btn btn-success">Lisää resepti</a>
+    <a href="{{base_path}}/recipe/{{recipe.id}}/edit" class="btn btn-success">Muokkaa reseptiä</a>
+    <a href="{{base_path}}/recipe/new" class="btn btn-success">Lisää resepti</a>
 </p>
 
 <img alt="{{recipe.nimi}}" width="300" height="200" class="img-thumbnail" src="{{recipe.kuva}}">

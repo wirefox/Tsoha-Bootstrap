@@ -29,10 +29,16 @@ $routes->get('/recipe/:id', function($id) {
     RecipeController::show($id);
 });
 
-// Reseptin lisäyssivu EI VIELÄ
-//$routes->get('/recipe/new', function($id) {
-//    RecipeController::new();
-//});
+//Reseptin muokkaaminen
+$routes->get('/recipe/:id/edit', function($id) {
+    RecipeController::edit($id);
+});
+
+//Reseptin päivittäminen 
+$routes->post('/recipe/:id/edit', function($id) {
+    RecipeController::update($id);
+});
+
 //VANHAT:
 //$routes->get('/', function() {
 //    HelloWorldController::index();
@@ -47,6 +53,7 @@ $routes->get('/recipe/:id', function($id) {
 //    HelloWorldController::recipe_edit();
 //});
 //
+//HelloWorld kontrollerin:
 $routes->get('/login', function() {
     HelloWorldController::login();
 });

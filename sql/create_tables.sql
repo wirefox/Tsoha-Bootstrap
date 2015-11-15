@@ -25,12 +25,12 @@ CREATE TABLE Kategoria
 CREATE TABLE Resepti
 (
     id SERIAL PRIMARY KEY,
-    nimi varchar(30) NOT NULL,
+    nimi varchar(40) NOT NULL,
     kategoria varchar(30) REFERENCES Kategoria(nimi),
     annoksia INTEGER,
     valmistusohje varchar(3000),
-    kuva varchar(300),
-    lahde varchar(300),
+    kuva varchar(1000),
+    lahde varchar(1000),
     lisayspvm DATE,
     muokkauspvm DATE,
     CONSTRAINT fk_kategoria FOREIGN KEY (kategoria) REFERENCES Kategoria(nimi)

@@ -6,7 +6,7 @@
 <form method="post" action="{{base_path}}/recipe">
     <div class="form-group">
         <label>Nimi</label>
-        <input type="text" name="nimi" class="form-control"> 
+        <input type="text" name="nimi" maxlength="50" class="form-control"> 
     </div>
 
     <div class="form-group">
@@ -25,7 +25,7 @@
 
     <div class="form-group">
         <label>Annoksia</label>
-        <input type="number" name="annoksia" class="form-control">
+        <input type="number" name="annoksia" min="1" max="100" class="form-control">
     </div>
 
     <h3>Ainesosat</h3>
@@ -72,19 +72,19 @@
 
     <div class="form-group">
         <label>Tee näin:</label>
-        <input type="text" name="valmistusohje" class="form-control">
+        <textarea name="valmistusohje" maxlength="3000" class="form-control"></textarea>
     </div>
 
     <h3>Reseptin ja ruokakuvan lähde</h3>
 
     <div class="form-group">
         <label>Kuvan lähde</label>
-        <input type="url" name="kuva" class="form-control">
+        <input type="url" name="kuva" maxlength="1000" class="form-control">
     </div>
 
     <div class="form-group">
         <label>Reseptin lähde</label>
-        <input type="url" name="lahde" class="form-control">
+        <input type="url" name="lahde" maxlength="1000" class="form-control">
     </div>
 
     <div class="form-group">

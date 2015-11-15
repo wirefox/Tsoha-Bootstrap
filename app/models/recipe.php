@@ -72,7 +72,28 @@ class Resepti extends BaseModel {
             'kuva' => $this->kuva,
             'lahde' => $this->lahde));
         $row = $query->fetch();
+
         $this->id = $row['id'];
+    }
+
+    public function update() {
+        $query = DB::connection()->prepare
+                ('UPDATE Resepti SET 
+                    nimi = :nimi, 
+                    kategoria = :kategoria, 
+                    annoksia = :annoksia,
+                    valmistusohje = :valmistusohje,
+                    kuva = :kuva,
+                    lahde = :lahde
+                WHERE id = :id');
+        $query->execute(array(
+            'id' => $this->id,
+            'nimi' => $this->nimi,
+            'kategoria' => $this->kategoria,
+            'annoksia' => $this->annoksia,
+            'valmistusohje' => $this->valmistusohje,
+            'kuva' => $this->kuva,
+            'lahde' => $this->lahde));
     }
 
 }

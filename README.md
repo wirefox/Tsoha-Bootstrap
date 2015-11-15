@@ -6,7 +6,6 @@ Yleisiä linkkejä:
  * [Linkki login-sivulle](http://ehaverin.users.cs.helsinki.fi/reseptipankki/login)
  * [Linkki reseptien listaussivulle](http://ehaverin.users.cs.helsinki.fi/reseptipankki/recipe)
  * [Linkki resepti-sivulle](http://ehaverin.users.cs.helsinki.fi/reseptipankki/recipe/1)
- * [Linkki reseptin muokkaussivulle] (http://ehaverin.users.cs.helsinki.fi/reseptipankki/recipe/2)
  * [Linkki tietokannan tauluihin ja niiden sisältöihin] (http://ehaverin.users.cs.helsinki.fi/reseptipankki/tietokantayhteys)
 * [Linkki dokumentaatiooni](https://github.com/wirefox/reseptipankki/blob/master/doc/dokumentaatio.pdf)
 

@@ -1,0 +1,31 @@
+<!--Lomakkeiden avaus:-->
+{% macro add_button(url, text) %}
+<a href="{{url}}" class="btn btn-default">{{text|default('Lisää')}}</a>
+{% endmacro %}
+
+{% macro edit_button(url, text) %}
+<a href="{{url}}" class="btn btn-default">{{text|default('Muokkaa')}}</a>
+{% endmacro %}
+
+{% macro recipelist_edit_button(url, text) %}
+<a href="{{url}}" class="btn btn-sm btn-info">{{text|default('Muokkaa')}}</a>
+{% endmacro %}
+
+<!--Toimenpiteet:-->
+{% macro destroy_button(action, text) %}
+<form method="post" action="{{action}}" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">{{text|default('Poista')}}</button>
+</form>
+{% endmacro %}
+
+{% macro save_button(action, text) %}
+<form method="post" action="{{action}}" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">{{text|default('Tallenna')}}</button>
+</form>
+{% endmacro %}
+
+{% macro update_button(action, text) %}
+<form method="post" action="{{action}}" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">{{text|default('Tallenna')}}</button>
+</form>
+{% endmacro %}

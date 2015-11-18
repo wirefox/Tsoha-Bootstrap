@@ -1,18 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
+{% import "macros/forms.html" as forms %}
 
 <h1>Lisää uusi resepti</h1>
+
+{% if errors %}
+<div class="alert alert-danger">
+    <ul>
+        {% for error in errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
 
 <form method="post" action="{{base_path}}/recipe">
     <div class="form-group">
         <label>Nimi</label>
-        <input type="text" name="nimi" maxlength="50" class="form-control"> 
+        <input type="text" name="nimi" class="form-control" value="{{attributes.nimi}}"> 
     </div>
 
     <div class="form-group">
         <label>Kategoria</label>
         <select class="form-control" name="kategoria">
+            {% if attributes.kategoria == null %}
             <option>Valitse...</option>
+            {% else %}
+            <option value="{{attributes.kategoria}}">{{attributes.kategoria}}</option>
+            {% endif %}
             <option value="Alkuruuat">Alkuruuat</option>
             <option value="Keitot">Keitot</option>
             <option value="Salaatit">Salaatit</option>
@@ -25,7 +40,7 @@
 
     <div class="form-group">
         <label>Annoksia</label>
-        <input type="number" name="annoksia" min="1" max="100" class="form-control">
+        <input type="text" name="annoksia" class="form-control" value="{{attributes.annoksia}}">
     </div>
 
     <h3>Ainesosat</h3>
@@ -72,27 +87,28 @@
 
     <div class="form-group">
         <label>Tee näin:</label>
-        <textarea name="valmistusohje" maxlength="3000" class="form-control"></textarea>
+        <textarea name="valmistusohje" class="form-control" >{{attributes.valmistusohje}}</textarea>
     </div>
 
     <h3>Reseptin ja ruokakuvan lähde</h3>
 
     <div class="form-group">
         <label>Kuvan lähde</label>
-        <input type="url" name="kuva" maxlength="1000" class="form-control">
+        <input type="text" name="kuva" class="form-control" value="{{attributes.kuva}}">
     </div>
 
     <div class="form-group">
         <label>Reseptin lähde</label>
-        <input type="url" name="lahde" maxlength="1000" class="form-control">
+        <input type="text" name="lahde" class="form-control" value="{{attributes.lahde}}">
     </div>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Lisää</button>
-    </div>
+    <!--    <div class="form-group">
+            <button type="submit" class="btn btn-primary">Tallenna</button>
+        </div>-->
 
-    <button type="button" onclick="alert(':)')">Smile!</button>
+    <p>
+        {{forms.save_button("#{base_path}/recipe/#{recipe.id}/save")}}
+    </p>
 
 </form>
-
 {% endblock %}

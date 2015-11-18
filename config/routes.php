@@ -1,9 +1,17 @@
 <?php
 
-$routes->get('/hiekkalaatikko', function() {
-    HelloWorldController::sandbox();
+//LOGIN:
+$routes->get('/login', function() {
+    // Kirjautumislomakkeen esittäminen
+    UserController::login();
 });
 
+$routes->post('/login', function() {
+    // Kirjautumisen käsittely
+    UserController::handle_login();
+});
+
+//RESEPTIN REITIT:
 //Etusivu (reseptien listaussivu)
 $routes->get('/', function() {
     RecipeController::index();
@@ -14,14 +22,14 @@ $routes->get('/recipe', function() {
     RecipeController::index();
 });
 
-// Reseptin lisääminen tietokantaan
-$routes->post('/recipe', function() {
-    RecipeController::store();
-});
-
 // Reseptin lisäyslomakkeen näyttäminen
 $routes->get('/recipe/new', function() {
     RecipeController::create();
+});
+
+// Reseptin lisääminen tietokantaan
+$routes->post('/recipe', function() {
+    RecipeController::store();
 });
 
 //Reseptin esittelysivu
@@ -29,7 +37,7 @@ $routes->get('/recipe/:id', function($id) {
     RecipeController::show($id);
 });
 
-//Reseptin muokkaaminen
+//Reseptin muokkauslomakkeen näyttäminen
 $routes->get('/recipe/:id/edit', function($id) {
     RecipeController::edit($id);
 });
@@ -37,6 +45,20 @@ $routes->get('/recipe/:id/edit', function($id) {
 //Reseptin päivittäminen 
 $routes->post('/recipe/:id/edit', function($id) {
     RecipeController::update($id);
+});
+
+//Reseptin poistaminen:
+$routes->post('/recipe/:id/destroy', function($id) {
+    RecipeController::destroy($id);
+});
+
+//HELLOWORLDCONTROLLERIN REITTI
+$routes->get('/hiekkalaatikko', function() {
+    HelloWorldController::sandbox();
+});
+
+$routes->get('/login', function() {
+    HelloWorldController::login();
 });
 
 //VANHAT:
@@ -54,6 +76,3 @@ $routes->post('/recipe/:id/edit', function($id) {
 //});
 //
 //HelloWorld kontrollerin:
-$routes->get('/login', function() {
-    HelloWorldController::login();
-});

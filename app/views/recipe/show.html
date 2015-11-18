@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% import "macros/forms.html" as forms %}
 
 {% if message %}
 <div class="alert alert-success">
@@ -16,8 +17,8 @@
 </h3>
 
 <p>
-    <a href="{{base_path}}/recipe/{{recipe.id}}/edit" class="btn btn-success">Muokkaa reseptiä</a>
-    <a href="{{base_path}}/recipe/new" class="btn btn-success">Lisää resepti</a>
+    {{forms.destroy_button("#{base_path}/recipe/#{recipe.id}/destroy")}}
+    {{forms.edit_button("#{base_path}/recipe/#{recipe.id}/edit")}}
 </p>
 
 <img alt="{{recipe.nimi}}" width="300" height="200" class="img-thumbnail" src="{{recipe.kuva}}">

@@ -3,8 +3,6 @@
 CREATE TABLE Kayttaja
 (
     id SERIAL PRIMARY KEY,                          -- yksikäsitteinen käyttäjän tunnus, generoituu automaattisesti
-    etunimi varchar(30) NOT NULL,               
-    sukunimi varchar(30) NOT NULL,
     kayttajatunnus varchar(8) NOT NULL UNIQUE,
     salasana varchar(30) NOT NULL,
     rooli INTEGER NOT NULL                          -- käyttäjän rooli, 0=normaali käyttäjä 1=ylläpitäjä

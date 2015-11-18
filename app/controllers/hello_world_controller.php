@@ -18,6 +18,21 @@ class HelloWorldController extends BaseController {
         Kint::dump($resepti);
     }
 
+
+//    public static function sandbox() {
+//        $resepti = new Resepti(array(
+//            'nimi' => 'kaurakeksi',
+//            'kategoria' => 'Makeat leivonnaiset',
+//            'annoksia' => '10',
+//            'valmistusohje' => 'Valmista keksit näin..',
+//            'kuva' => 'https://imaging.stockmann.com/web/HH/267/888/267888_01.jpg?&width=85&profile=146_tr.146_tr.146_tr',
+//            'lahde' => 'https://www.hobbyhall.fi/kodinkoneet/siivous-ja-sisailma/polynimurit/dyson-dc35-varsi-rikkaimuri-matress-suulake?'
+//        ));
+//        $errors = $resepti->errors();
+//
+//        Kint::dump($errors);
+//    }
+
     public static function recipe_list() {
         View::make('suunnitelmat/recipe_list.html');
     }

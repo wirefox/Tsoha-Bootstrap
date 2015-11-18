@@ -1,7 +1,5 @@
-INSERT INTO KAYTTAJA (etunimi, sukunimi, kayttajatunnus, salasana, rooli) 
-    VALUES ('Arttu', 'Testinen', '12345888', '55555', '0');
-INSERT INTO KAYTTAJA (etunimi, sukunimi, kayttajatunnus, salasana, rooli) 
-    VALUES ('Elina', 'Testaaja', '1234699', '55556', '1');
+INSERT INTO KAYTTAJA (kayttajatunnus, salasana, rooli) VALUES ('kokki3', '333', '0');
+INSERT INTO KAYTTAJA (kayttajatunnus, salasana, rooli) VALUES ('mrchef', '101010', '0');
 
 INSERT INTO RAAKA_AINE (nimi, ravintoarvo) VALUES ('vehnäjauho', 'http://www.fineli.fi/food.php?foodid=110&lang=fi');
 INSERT INTO RAAKA_AINE (nimi, ravintoarvo) VALUES ('kevytmaito', 'http://www.fineli.fi/food.php?foodid=684&lang=fi');

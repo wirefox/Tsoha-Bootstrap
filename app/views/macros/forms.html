@@ -13,10 +13,15 @@
 
 <!--Toimenpiteet:-->
 {% macro destroy_button(action, text) %}
-<form method="post" action="{{action}}" style="display: inline-block;">
+<form method="post" action="{{action}}" style="display: inline-block;" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa reseptin?">
     <button type="submit" class="btn btn-danger">{{text|default('Poista')}}</button>
 </form>
 {% endmacro %}
+
+<!--Poistomacro saattaa olla parempi seuraavanlaisena:-->
+<!--<form method="post" action="{{base_path}}/game/{{game.id}}/destroy" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa pelin?">
+  <button type="submit" class="btn btn-danger">Poista</button>
+</form>-->
 
 {% macro save_button(action, text) %}
 <form method="post" action="{{action}}" style="display: inline-block;">

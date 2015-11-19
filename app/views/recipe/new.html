@@ -17,16 +17,16 @@
 <form method="post" action="{{base_path}}/recipe">
     <div class="form-group">
         <label>Nimi</label>
-        <input type="text" name="nimi" class="form-control" value="{{attributes.nimi}}"> 
+        <input type="text" name="recipe_name" class="form-control" value="{{attributes.recipe_name}}"> 
     </div>
 
     <div class="form-group">
         <label>Kategoria</label>
-        <select class="form-control" name="kategoria">
-            {% if attributes.kategoria == null %}
+        <select class="form-control" name="category">
+            {% if attributes.category == null %}
             <option>Valitse...</option>
             {% else %}
-            <option value="{{attributes.kategoria}}">{{attributes.kategoria}}</option>
+            <option value="{{attributes.category}}">{{attributes.category}}</option>
             {% endif %}
             <option value="Alkuruuat">Alkuruuat</option>
             <option value="Keitot">Keitot</option>
@@ -40,7 +40,7 @@
 
     <div class="form-group">
         <label>Annoksia</label>
-        <input type="text" name="annoksia" class="form-control" value="{{attributes.annoksia}}">
+        <input type="text" name="portion_amount" class="form-control" value="{{attributes.portion_amount}}">
     </div>
 
     <h3>Ainesosat</h3>
@@ -87,19 +87,19 @@
 
     <div class="form-group">
         <label>Tee näin:</label>
-        <textarea name="valmistusohje" class="form-control" >{{attributes.valmistusohje}}</textarea>
+        <textarea name="instruction" class="form-control" >{{attributes.instruction}}</textarea>
     </div>
 
     <h3>Reseptin ja ruokakuvan lähde</h3>
 
     <div class="form-group">
         <label>Kuvan lähde</label>
-        <input type="text" name="kuva" class="form-control" value="{{attributes.kuva}}">
+        <input type="text" name="picture" class="form-control" value="{{attributes.picture}}">
     </div>
 
     <div class="form-group">
         <label>Reseptin lähde</label>
-        <input type="text" name="lahde" class="form-control" value="{{attributes.lahde}}">
+        <input type="text" name="recipe_source" class="form-control" value="{{attributes.recipe_source}}">
     </div>
 
     <!--    <div class="form-group">

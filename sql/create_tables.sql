@@ -1,44 +1,50 @@
--- Lisää CREATE TABLE lauseet tähän tiedostoon
-
-CREATE TABLE Kayttaja
+CREATE TABLE Recipe_user
 (
     id SERIAL PRIMARY KEY,                          -- yksikäsitteinen käyttäjän tunnus, generoituu automaattisesti
-    kayttajatunnus varchar(8) NOT NULL UNIQUE,
-    salasana varchar(30) NOT NULL,
-    rooli INTEGER NOT NULL                          -- käyttäjän rooli, 0=normaali käyttäjä 1=ylläpitäjä
+    username varchar(8) NOT NULL UNIQUE,
+    password varchar(30) NOT NULL,
+    user_role INTEGER NOT NULL                          -- käyttäjän rooli, 0=normaali käyttäjä 1=ylläpitäjä
 );
 
-CREATE TABLE Raaka_aine
+CREATE TABLE Ingredient
 (
     id SERIAL PRIMARY KEY,
-    nimi varchar(30) NOT NULL,
-    ravintoarvo varchar(300)                       -- linkki fineli.fi, esim. http://www.fineli.fi/food.php?foodid=110&lang=fi
+    ingredient_name varchar(30) NOT NULL,
+    nutrition varchar(300)                       -- linkki fineli.fi, esim. http://www.fineli.fi/food.php?foodid=110&lang=fi
 );
 
-CREATE TABLE Kategoria
+CREATE TABLE Category
 (
-    nimi varchar(30) PRIMARY KEY
+    category_name varchar(30) PRIMARY KEY
 );
 
-CREATE TABLE Resepti
+CREATE TABLE Recipe
 (
     id SERIAL PRIMARY KEY,
-    nimi varchar(40) NOT NULL,
-    kategoria varchar(30) REFERENCES Kategoria(nimi),
-    annoksia INTEGER,
-    valmistusohje varchar(3000),
-    kuva varchar(1000),
-    lahde varchar(1000),
-    lisayspvm DATE,
-    muokkauspvm DATE,
-    CONSTRAINT fk_kategoria FOREIGN KEY (kategoria) REFERENCES Kategoria(nimi)
+    recipe_name varchar(40) NOT NULL,
+    category varchar(30),
+    portion_amount INTEGER,
+    instruction varchar(3000),
+    picture varchar(1000),
+    recipe_source varchar(1000),
+    added DATE,
+    CONSTRAINT fk_category FOREIGN KEY (category) REFERENCES Category(category_name)
 );
 
-CREATE TABLE Reseptin_raakaAine
+CREATE TABLE Recipe_ingredient
 (
-    resepti_id INTEGER REFERENCES Resepti(id) ON UPDATE CASCADE ON DELETE CASCADE,
-    raakaAine_id INTEGER REFERENCES Raaka_aine(id) ON UPDATE CASCADE,
-    maara INTEGER NOT NULL,
-    yksikko varchar(10) NOT NULL,
-    CONSTRAINT pk_Reseptin_raakaAine PRIMARY KEY (resepti_id, raakaAine_id)
+    recipe_id INTEGER,
+    ingredient_id INTEGER,
+    amount INTEGER NOT NULL,
+    unit varchar(10) NOT NULL,
+    CONSTRAINT pk_Recipe_ingredient PRIMARY KEY (recipe_id, ingredient_id)
 );
+
+-- CREATE TABLE Recipe_ingredient
+-- (
+--     recipe_id INTEGER REFERENCES Recipe(id) ON UPDATE CASCADE ON DELETE CASCADE,
+--     ingredient_id INTEGER REFERENCES Ingredient(id) ON UPDATE CASCADE,
+--     amount INTEGER NOT NULL,
+--     unit varchar(10) NOT NULL,
+--     CONSTRAINT pk_Recipe_ingredient PRIMARY KEY (recipe_id, ingredient_id)
+-- );

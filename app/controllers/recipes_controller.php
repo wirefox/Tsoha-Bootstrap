@@ -3,8 +3,8 @@
 class RecipeController extends BaseController {
 
     public static function index() {
-        $reseptit = Resepti::all();
-        View::make('recipe/index.html', array('reseptit' => $reseptit));
+        $recipes = Recipe::all();
+        View::make('recipe/index.html', array('recipes' => $recipes));
     }
 
     public static function create() {
@@ -14,15 +14,15 @@ class RecipeController extends BaseController {
     public static function store() {
         $params = $_POST;
         $attributes = array(
-            'nimi' => $params['nimi'],
-            'kategoria' => $params['kategoria'],
-            'annoksia' => $params['annoksia'],
-            'valmistusohje' => $params['valmistusohje'],
-            'kuva' => $params['kuva'],
-            'lahde' => $params['lahde']
+            'recipe_name' => $params['recipe_name'],
+            'category' => $params['category'],
+            'portion_amount' => $params['portion_amount'],
+            'instruction' => $params['instruction'],
+            'picture' => $params['picture'],
+            'recipe_source' => $params['recipe_source']
         );
 
-        $recipe = new Resepti($attributes);
+        $recipe = new Recipe($attributes);
         $errors = $recipe->errors();
 
         if (count($errors) == 0) {
@@ -35,13 +35,13 @@ class RecipeController extends BaseController {
     }
 
     public static function show($id) {
-        $recipe = Resepti::find($id);
+        $recipe = Recipe::find($id);
         View::make('recipe/show.html', array('recipe' => $recipe));
     }
 
     //muokkauslomakkeen esittäminen:
     public static function edit($id) {
-        $recipe = Resepti::find($id);
+        $recipe = Recipe::find($id);
         View::make('recipe/edit.html', array('attributes' => $recipe));
     }
 
@@ -51,17 +51,17 @@ class RecipeController extends BaseController {
 
         $attributes = array(
             'id' => $id,
-            'nimi' => $params['nimi'],
-            'kategoria' => $params['kategoria'],
-            'annoksia' => $params['annoksia'],
-            'valmistusohje' => $params['valmistusohje'],
-            'kuva' => $params['kuva'],
-            'lahde' => $params['lahde']
+            'recipe_name' => $params['recipe_name'],
+            'category' => $params['category'],
+            'portion_amount' => $params['portion_amount'],
+            'instruction' => $params['instruction'],
+            'picture' => $params['picture'],
+            'recipe_source' => $params['recipe_source']
         );
 
         //   Kint::dump($params); //debuggaamiseen
 
-        $recipe = new Resepti($attributes);
+        $recipe = new Recipe($attributes);
         $errors = $recipe->errors();
 
 
@@ -74,7 +74,7 @@ class RecipeController extends BaseController {
     }
 
     public static function destroy($id) {
-        $recipe = new Resepti(array('id' => $id));
+        $recipe = new Recipe(array('id' => $id));
         $recipe->destroy();
 
         Redirect::to('/recipe', array('message' => 'Resepti on poistettu onnistuneesti.'));

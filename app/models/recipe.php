@@ -1,77 +1,74 @@
 <?php
 
-class Resepti extends BaseModel {
+class Recipe extends BaseModel {
 
     public $id,
-            $nimi,
-            $kategoria,
-            $annoksia,
-            $valmistusohje,
-            $kuva,
-            $lahde,
-            $lisayspvm,
-            $muokkauspvm;
+            $recipe_name,
+            $category,
+            $portion_amount,
+            $instruction,
+            $picture,
+            $recipe_source,
+            $added;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array('validate_nimi', 'validate_kategoria', 'validate_annoksia', 'validate_valmistusohje', 'validate_kuva', 'validate_lahde');
+        $this->validators = array('validate_name', 'validate_category', 'validate_portion', 'validate_instruction', 'validate_picture', 'validate_recipe_source');
     }
 
     public static function all() {
-        $query = DB::connection()->prepare('SELECT * FROM Resepti');
+        $query = DB::connection()->prepare('SELECT * FROM Recipe');
         $query->execute();
         $rows = $query->fetchAll();
-        $reseptit = array();
+        $recipes = array();
 
         foreach ($rows as $row) {
-            $reseptit[] = new Resepti(array(
+            $recipes[] = new Recipe(array(
                 'id' => $row['id'],
-                'nimi' => $row['nimi'],
-                'kategoria' => $row['kategoria'],
-                'annoksia' => $row['annoksia'],
-                'valmistusohje' => $row['valmistusohje'],
-                'kuva' => $row['kuva'],
-                'lahde' => $row['lahde'],
-                'lisayspvm' => $row['lisayspvm'],
-                'muokkauspvm' => $row['muokkauspvm']
+                'recipe_name' => $row['recipe_name'],
+                'category' => $row['category'],
+                'portion_amount' => $row['portion_amount'],
+                'instruction' => $row['instruction'],
+                'picture' => $row['picture'],
+                'recipe_source' => $row['recipe_source'],
+                'added' => $row['added']
             ));
         }
 
-        return $reseptit;
+        return $recipes;
     }
 
     public static function find($id) {
-        $query = DB::connection()->prepare('SELECT * FROM Resepti WHERE id = :id LIMIT 1');
+        $query = DB::connection()->prepare('SELECT * FROM Recipe WHERE id = :id LIMIT 1');
         $query->execute(array('id' => $id));
         $row = $query->fetch();
         if ($row) {
-            $resepti = new Resepti(array(
+            $recipe = new Recipe(array(
                 'id' => $row['id'],
-                'nimi' => $row['nimi'],
-                'kategoria' => $row['kategoria'],
-                'annoksia' => $row['annoksia'],
-                'valmistusohje' => $row['valmistusohje'],
-                'kuva' => $row['kuva'],
-                'lahde' => $row['lahde'],
-                'lisayspvm' => $row['lisayspvm'],
-                'muokkauspvm' => $row['muokkauspvm'],
+                'recipe_name' => $row['recipe_name'],
+                'category' => $row['category'],
+                'portion_amount' => $row['portion_amount'],
+                'instruction' => $row['instruction'],
+                'picture' => $row['picture'],
+                'recipe_source' => $row['recipe_source'],
+                'added' => $row['added']
             ));
-            return $resepti;
+            return $recipe;
         }
         return null;
     }
 
     public function save() {
         $query = DB::connection()->prepare
-                ('INSERT INTO Resepti (nimi, kategoria, annoksia, valmistusohje, kuva, lahde, lisayspvm, muokkauspvm) '
-                . 'VALUES (:nimi, :kategoria, :annoksia, :valmistusohje, :kuva, :lahde, NOW(), NOW()) RETURNING id');
+                ('INSERT INTO Recipe (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) '
+                . 'VALUES (:recipe_name, :category, :portion_amount, :instruction, :picture, :recipe_source, NOW()) RETURNING id');
         $query->execute(array(
-            'nimi' => $this->nimi,
-            'kategoria' => $this->kategoria,
-            'annoksia' => $this->annoksia,
-            'valmistusohje' => $this->valmistusohje,
-            'kuva' => $this->kuva,
-            'lahde' => $this->lahde));
+            'recipe_name' => $this->recipe_name,
+            'category' => $this->category,
+            'portion_amount' => $this->portion_amount,
+            'instruction' => $this->instruction,
+            'picture' => $this->picture,
+            'recipe_source' => $this->recipe_source));
         $row = $query->fetch();
 
         $this->id = $row['id'];
@@ -79,23 +76,23 @@ class Resepti extends BaseModel {
 
     public function update() {
         $query = DB::connection()->prepare
-                ('UPDATE Resepti SET 
-                    nimi = :nimi, 
-                    kategoria = :kategoria, 
-                    annoksia = :annoksia,
-                    valmistusohje = :valmistusohje,
-                    kuva = :kuva,
-                    lahde = :lahde
+                ('UPDATE Recipe SET 
+                    recipe_name = :recipe_name, 
+                    category = :category, 
+                    portion_amount = :portion_amount,
+                    instruction = :instruction,
+                    picture = :picture,
+                    recipe_source = :recipe_source
                 WHERE id = :id');
 
         $query->execute(array(
             'id' => $this->id,
-            'nimi' => $this->nimi,
-            'kategoria' => $this->kategoria,
-            'annoksia' => $this->annoksia,
-            'valmistusohje' => $this->valmistusohje,
-            'kuva' => $this->kuva,
-            'lahde' => $this->lahde));
+            'recipe_name' => $this->recipe_name,
+            'category' => $this->category,
+            'portion_amount' => $this->portion_amount,
+            'instruction' => $this->instruction,
+            'picture' => $this->picture,
+            'recipe_source' => $this->recipe_source));
 
         $row = $query->fetch();
 
@@ -104,79 +101,79 @@ class Resepti extends BaseModel {
     }
 
     public function destroy() {
-        $query = DB::connection()->prepare('DELETE FROM Resepti WHERE id = :id');
+        $query = DB::connection()->prepare('DELETE FROM Recipe WHERE id = :id');
 
         $query->execute(array('id' => $this->id));
     }
 
-    public function validate_nimi() {
+    public function validate_name() {
         $errors = array();
-        if ($this->nimi == '' || $this->nimi == null) {
+        if ($this->recipe_name == '' || $this->recipe_name == null) {
             $errors[] = 'Nimi ei saa olla tyhjä.';
         }
-        if (strlen($this->nimi) < 3) {
+        if (strlen($this->recipe_name) < 3) {
             $errors[] = 'Nimen pituuden tulee olla vähintään 3 merkkiä.';
         }
-        if (strlen($this->nimi) > 50) {
+        if (strlen($this->recipe_name) > 50) {
             $errors[] = 'Nimen pituuden tulee olla enintään 50 merkkiä.';
         }
         return $errors;
     }
 
-    public function validate_kategoria() {
+    public function validate_category() {
         $errors = array();
-        if ($this->kategoria == 'Valitse...') {
+        if ($this->category == 'Valitse...') {
             $errors[] = 'Valitse kategoria';
         }
         return $errors;
     }
 
-    public function validate_annoksia() {
+    public function validate_portion() {
         $errors = array();
-        if ($this->annoksia == '' || $this->annoksia == null) {
+        if ($this->portion_amount == '' || $this->portion_amount == null) {
             $errors[] = 'Annosmäärä ei saa olla tyhjä.';
         }
-//        if (is_numeric($this->annoksia) < 1) {
+//        if (is_numeric($this->portion) < 1) {
 //            $errors[] = 'Annosmäärän tulee olla vähintään 1.';
 //        }
 
-        if (!is_numeric($this->annoksia)) {
+        if (!is_numeric($this->portion_amount)) {
             $errors[] = 'Annosmäärän tulee olla numero.';
         }
         return $errors;
     }
 
-    public function validate_valmistusohje() {
+    public function validate_instruction() {
         $errors = array();
-        if ($this->valmistusohje == '' || $this->valmistusohje == null) {
+        if ($this->instruction == '' || $this->instruction == null) {
             $errors[] = 'Valmistusohje ei saa olla tyhjä.';
         }
-        if (strlen($this->valmistusohje) < 3 && strlen($this->valmistusohje) > 3000) {
+        if (strlen($this->instruction) < 3 && strlen($this->instruction) > 3000) {
             $errors[] = 'Valmistusohjeen pituuden tulee olla vähintään 3 merkkiä.';
         }
-        if (strlen($this->valmistusohje) > 3000) {
+        if (strlen($this->instruction) > 3000) {
             $errors[] = 'Valmistusohjeen pituuden tulee olla enintään 3000 merkkiä.';
         }
         return $errors;
     }
 
-    public function validate_kuva() {
+    public function validate_picture() {
         $errors = array();
-        if ($this->kuva == '' || $this->kuva == null) {
+        if ($this->picture == '' || $this->picture == null) {
             $errors[] = 'Kuvan lähdeviite ei saa olla tyhjä.';
         }
-        if (strlen($this->kuva) < 3) {
+        if (strlen($this->picture) < 3) {
             $errors[] = 'Kuvan lähdeviitteen pituuden tulee olla vähintään 3 merkkiä.';
         }
         return $errors;
     }
 
-    public function validate_lahde() {
+    public function validate_recipe_source() {
         $errors = array();
-        if ($this->lahde == '' || $this->lahde == null) {
+        if ($this->recipe_source == '' || $this->recipe_source == null) {
             $errors[] = 'Reseptin lähde ei saa olla tyhjä.';
         }
-        if (strlen($this->lahde) < 3) {
+        if (strlen($this->recipe_source) < 3) {
             $errors[] = 'Reseptin lähteen pituuden tulee olla vähintään 3 merkkiä.';
         }
         return $errors;

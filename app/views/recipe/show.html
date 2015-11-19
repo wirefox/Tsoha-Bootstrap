@@ -8,20 +8,22 @@
 </div>
 {% endif %}
 
-<h1>{{recipe.nimi}}</h1>
-<h3>{{recipe.kategoria}}</h3>
-<h3> {{recipe.annoksia}} 
-    {% if recipe.annoksia == 1 %} annos
+<h1>{{recipe.recipe_name}}</h1>
+<h3>{{recipe.category}}</h3>
+<h3> {{recipe.portion_amount}} 
+    {% if recipe.portion_amount == 1 %} annos
     {% else %} annosta
     {% endif %}
 </h3>
 
 <p>
+    {% if user_logged_in %}
     {{forms.destroy_button("#{base_path}/recipe/#{recipe.id}/destroy")}}
     {{forms.edit_button("#{base_path}/recipe/#{recipe.id}/edit")}}
+    {% endif %}
 </p>
 
-<img alt="{{recipe.nimi}}" width="300" height="200" class="img-thumbnail" src="{{recipe.kuva}}">
+<img alt="{{recipe.recipe_name}}" width="300" height="200" class="img-thumbnail" src="{{recipe.picture}}">
 
 <h2>Ainekset</h2>
 
@@ -32,12 +34,12 @@
 </ul>-->
 
 <h2>Valmistusohjeet</h2>
-{{recipe.valmistusohje}}
+{{recipe.instruction}}
 
 <!--<ol>
     <li></li>
 </ol>
 <br>-->
-<footer><strong>Lähde: </strong> <a href="{{recipe.lahde}}">{{recipe.lahde}}</a><br>
-    <strong>Lisätty: </strong>{{recipe.lisayspvm}}</footer>
+<footer><strong>Lähde: </strong> <a href="{{recipe.recipe_source}}">{{recipe.recipe_source}}</a><br>
+    <strong>Lisätty: </strong>{{recipe.added}}</footer>
 {% endblock %}

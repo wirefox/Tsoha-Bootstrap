@@ -11,13 +11,12 @@ class HelloWorldController extends BaseController {
         // Testaa koodiasi täällä
         //echo 'Hello World!';
         //View::make('helloworld.html');
-        $resepti = Resepti::find(1);
-        $reseptit = Resepti::all();
+        $recipe = Recipe::find(1);
+        $recipes = Recipe::all();
         // Kint-luokan dump-metodi tulostaa muuttujan arvon
-        Kint::dump($reseptit);
-        Kint::dump($resepti);
+        Kint::dump($recipes);
+        Kint::dump($recipe);
     }
-
 
 //    public static function sandbox() {
 //        $resepti = new Resepti(array(

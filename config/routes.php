@@ -1,6 +1,6 @@
 <?php
 
-//LOGIN:
+//LOGIN & LOGOUT:
 $routes->get('/login', function() {
     // Kirjautumislomakkeen esittäminen
     UserController::login();
@@ -9,6 +9,10 @@ $routes->get('/login', function() {
 $routes->post('/login', function() {
     // Kirjautumisen käsittely
     UserController::handle_login();
+});
+
+$routes->post('/logout', function(){
+    UserController::logout();
 });
 
 //RESEPTIN REITIT:

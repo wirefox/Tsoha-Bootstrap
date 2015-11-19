@@ -30,15 +30,16 @@
     </thead>   
 
     <tbody>
-        {% for resepti in reseptit %}
+        {% for recipe in recipes %}
         <tr>
 
-            <td><a href="{{base_path}}/recipe/{{resepti.id}}">{{resepti.nimi}}</td>
-            <td>{{resepti.kategoria}}</td>
-            <td><a href="{{resepti.lahde}}">{{resepti.lahde}}</a></td>
-            <!--            <td>{{resepti.lahde}}</td>-->
-            <td>{{resepti.lisayspvm}}</td>
-            <td>{{forms.recipelist_edit_button("#{base_path}/recipe/#{resepti.id}/edit")}}</td>
+            <td><a href="{{base_path}}/recipe/{{recipe.id}}">{{recipe.recipe_name}}</td>
+            <td>{{recipe.category}}</td>
+            <td><a href="{{recipe.recipe_source}}">{{recipe.recipe_source}}</a></td>
+            <td>{{recipe.added}}</td>
+            {% if user_logged_in %}
+            <td>{{forms.recipelist_edit_button("#{base_path}/recipe/#{recipe.id}/edit")}}</td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

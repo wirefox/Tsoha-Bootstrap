@@ -3,15 +3,18 @@
 class RecipeController extends BaseController {
 
     public static function index() {
+        self::check_logged_in();
         $recipes = Recipe::all();
         View::make('recipe/index.html', array('recipes' => $recipes));
     }
 
     public static function create() {
+        self::check_logged_in();
         View::make('recipe/new.html');
     }
 
     public static function store() {
+        self::check_logged_in();
         $params = $_POST;
         $attributes = array(
             'recipe_name' => $params['recipe_name'],
@@ -35,18 +38,21 @@ class RecipeController extends BaseController {
     }
 
     public static function show($id) {
+        self::check_logged_in();
         $recipe = Recipe::find($id);
         View::make('recipe/show.html', array('recipe' => $recipe));
     }
 
     //muokkauslomakkeen esittäminen:
     public static function edit($id) {
+        self::check_logged_in();
         $recipe = Recipe::find($id);
         View::make('recipe/edit.html', array('attributes' => $recipe));
     }
 
     //muokkauslomakkeen käsittely:
     public static function update($id) {
+        self::check_logged_in();
         $params = $_POST;
 
         $attributes = array(
@@ -74,6 +80,7 @@ class RecipeController extends BaseController {
     }
 
     public static function destroy($id) {
+        self::check_logged_in();
         $recipe = new Recipe(array('id' => $id));
         $recipe->destroy();
 

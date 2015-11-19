@@ -19,7 +19,7 @@ class BaseController {
         // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
 
         if (!isset($_SESSION['user'])) {
-            Redirect::to('/login', array('message' => 'Toimintoa varten sinun tulee kirjautua sisään Reseptipankkiin.'));
+            Redirect::to('/login', array('message' => 'Kirjaudu ensin sisään Reseptipankkiin.'));
         }
     }
 

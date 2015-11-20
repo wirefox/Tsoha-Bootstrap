@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+
+{% if message %}
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endif %}
+
+{% if user_logged_in %}
+{{forms.edit_button("#{base_path}/category/#{category.category_name}/edit")}}
+{{forms.destroy_button("#{base_path}/category/#{category.category_name}/destroy")}}
+{% endif %}
+<br>
+
+<h1>{{category.category_name}}</h1>
+
+<h4>Yleiskuvaus kategoriasta:</h4> 
+<h4>{{category.information}}</h4>
+
+{% endblock %}

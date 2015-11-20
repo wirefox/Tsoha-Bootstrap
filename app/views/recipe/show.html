@@ -7,19 +7,22 @@
     {{message}}
 </div>
 {% endif %}
+<h1> <small> {{recipe.category}}</small> 
+</h1>
 
-<h1>{{recipe.recipe_name}}</h1>
-<h3>{{recipe.category}}</h3>
-<h3> {{recipe.portion_amount}} 
+<h1>{{recipe.recipe_name}} </h1>
+
+<h4> {{recipe.portion_amount}} 
     {% if recipe.portion_amount == 1 %} annos
     {% else %} annosta
     {% endif %}
-</h3>
+</h4>
 
 <p>
     {% if user_logged_in %}
     {{forms.destroy_button("#{base_path}/recipe/#{recipe.id}/destroy")}}
     {{forms.edit_button("#{base_path}/recipe/#{recipe.id}/edit")}}
+    {{forms.add_button("#{recipe.id}/recipe_ingredient", 'Lisää raaka-aine reseptille')}}
     {% endif %}
 </p>
 
@@ -27,19 +30,23 @@
 
 <h2>Ainekset</h2>
 
-<!--<ul>
-    {% for reseptin_raakaAine in reseptin_raakaAineet %}
-    <li><strong>{{reseptin_raakaAine.maara}}</strong> {{reseptin_raakaAine.yksikko}}a</li>
+<h5> Tähän pitäisi tulla listaus reseptin aineksista </h5>
+
+<ul>
+    {% for recipe_ingredient in recipe_ingredients %}
+    <li><strong>{{recipe_ingredient.amount}} </strong> {{recipe_ingredient.unit}}</li>
     {% endfor %}
-</ul>-->
+</ul>
 
 <h2>Valmistusohjeet</h2>
 {{recipe.instruction}}
 
 <!--<ol>
     <li></li>
-</ol>
-<br>-->
+</ol>-->
+
+<br>
+<br>
 <footer><strong>Lähde: </strong> <a href="{{recipe.recipe_source}}">{{recipe.recipe_source}}</a><br>
     <strong>Lisätty: </strong>{{recipe.added}}</footer>
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+
+<h1>Lisää uusi mittayksikkö</h1>
+
+<form method="post" action="{{base_path}}/unit">
+    <div class="form-group">
+        <label>Mittayksikön nimi</label>
+        <input name="unit_name" class="form-control" type="text" value="{{attributes.unit_name}}">
+    </div>
+
+    <div class="form-group">
+        <label>Lisätiedot</label>
+        <input name="information" class="form-control" type="text" value="{{attributes.information}}">
+    </div>
+
+    <!--    <div class="form-group">
+            <button type="submit" class="btn btn-primary">Lisää</button>
+        </div>  -->
+    <p>
+        {{forms.save_button("#{base_path}/unit/#{unit.name}/save", 'Lisää')}}
+    </p>
+
+</form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+
+<h1>Lisää raaka-aine {{recipe.recipe_name}} -reseptille</h1>
+
+<form method="post" action="{{base_path}}/recipe/{{recipe.id}}/recipe_ingredient">
+
+    <div class="form-group">
+        <label>Määrä</label>
+        <input name="amount" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Yksikkö</label>
+        <input name="unit" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Raaka-aine</label>
+        <select class="form-control" name="raaka_aine">
+            {% for aine in aineet %}
+            <option value="{{aine.nimi}}">{{aine.nimi}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <input name="resepti_id" value="{{recipe.id}}" type="hidden">
+
+    <!--         MUOKKAA PAINIKE!
+        <button type="submit" class="btn btn-primary">Lisää</button>-->
+    
+    <p>
+        {{forms.save_button("#{base_path}/recipe_ingredient/#{ingredient}/save", 'Lisää')}}
+    </p>
+
+</form>
+
+{% endblock %}

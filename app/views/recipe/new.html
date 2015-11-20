@@ -44,49 +44,34 @@
     </div>
 
     <h3>Ainesosat</h3>
+    <div class="form-group">
+        <label>Määrä</label>
+        <input name="amount" class="form-control" type="text" value="{{recipeIngredient.amount}}"> 
+    </div>
 
-    <!-- EI VOI VIELÄ TOTEUTTAA; RAAKA-AINE-CONTROLLERI JA REITTI PUUTTUU
-        <div class="form-group">
-            <label>Määrä</label>
-            <input type="text" name="maara" class="form-control">
-        </div>
-    
-        <div class="form-group">
-            <label>Yksikkö</label>
-            <select class="form-control" name="yksikko">
-                <option>Valitse...</option>
-                <option value="tl">tl</option>
-                <option value="rkl">rkl</option>
-                <option value="dl">dl</option>
-                <option value="l">l</option>
-                <option value="g">g</option>
-                <option value="kg">kg</option>
-                <option value="ripaus">ripaus</option>
-                <option value="kpl">kpl</option>
-            </select>
-        </div>
-    
-        <div class="form-group">
-            <label>Raaka-aine</label>
-            <select class="form-control" name="raaka_aine">
-                            
-                            Toteutetaan jotenkin näin, sitten kun raaka-aineet saadaan tuotua listaksi
-                            {% if reseptin_raakaAine.id != null %}
-                            <option value="{{reseptin_raakaAine.raaka_aine}}">{{reseptin_raakaAine.raaka_aine}}</option>
-                            {% endif %}
-                            {% for aine in aineet %}
-                            <option value="{{aine.nimi}}">{{aine.nimi}}</option>
-                            {% endfor %}
-                <option>Valitse...</option>
-                <option value="vehnäjauho">vehnäjauho</option>
-                <option value="kevytmaito">kevytmaito</option>
-            </select>
-        </div>-->
+    <div class="form-group">
+        <label>Yksikkö</label>
+        <input name="unit" class="form-control" type="text" value="{{recipeIngredient.unit}}">
+    </div>
+
+    <div class="form-group">
+        <label>Raaka-aine</label>
+        <select class="form-control" name="ingredient">
+            {% if recipe_ingredients.ingredient != null %}
+            <option value="{{recipe_ingredients.ingredient}}">{{recipe_ingredients.ingredient}}</option>
+            {% endif %}
+            {% for ingredient in ingredients %}
+            <option value="{{ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <h5> Tähän yläpuolelle pitäisi tulla raaka-aineiden valinta reseptille.. </h5>
 
     <h3>Valmistusohjeet</h3>
 
     <div class="form-group">
-        <label>Tee näin:</label>
+        <label>Näillä ohjeilla onnistut:</label>
         <textarea name="instruction" class="form-control" >{{attributes.instruction}}</textarea>
     </div>
 
@@ -101,10 +86,6 @@
         <label>Reseptin lähde</label>
         <input type="text" name="recipe_source" class="form-control" value="{{attributes.recipe_source}}">
     </div>
-
-    <!--    <div class="form-group">
-            <button type="submit" class="btn btn-primary">Tallenna</button>
-        </div>-->
 
     <p>
         {{forms.save_button("#{base_path}/recipe/#{recipe.id}/save")}}

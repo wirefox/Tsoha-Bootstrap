@@ -2,7 +2,7 @@
 {% block content %}
 {% import "macros/forms.html" as forms %}
 
-<h1>Muokkaa reseptiä {{attributes.recipe_name}}</h1>
+<h1>Muokkaa reseptiä: {{attributes.recipe_name}}</h1>
 
 {% if errors %}
 <div class="alert alert-danger">
@@ -40,6 +40,10 @@
     </div>
 
     <h3>Ainesosat</h3>
+    
+    Tähän pitäisi tulla ainesosa-luettelo, jota voi muokata.
+
+    <!--    AINESOSA-KOHTA PUUTTUU KOKONAAN!-->
 
     <h3>Valmistusohjeet</h3>
 
@@ -60,13 +64,15 @@
         <input type="text" name="recipe_source" class="form-control" value="{{attributes.recipe_source}}">
     </div>
 
-    <!--    <div class="form-group">
-            <button type="submit" class="btn btn-primary">Tallenna muutokset</button>
-        </div>-->
-
     <p>
         {{forms.update_button("#{base_path}/recipe/#{recipe.id}/update")}}
     </p>
 
+    <!--VANHAT:
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Tallenna muutokset</button>
+        </div>-->
+
 </form>
 {% endblock %}
+

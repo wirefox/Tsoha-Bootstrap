@@ -3,14 +3,23 @@ INSERT INTO RECIPE_USER (username, password, user_role) VALUES ('mrchef', '10101
 
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('vehnäjauho', 'http://www.fineli.fi/food.php?foodid=110&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kevytmaito', 'http://www.fineli.fi/food.php?foodid=684&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('vesi', 'http://www.fineli.fi/food.php?foodid=922&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kananmuna', 'http://www.fineli.fi/food.php?foodid=858&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('sokeri', 'http://www.fineli.fi/food.php?foodid=1&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('hiiva', 'http://www.fineli.fi/food.php?foodid=26&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('suola', 'http://www.fineli.fi/food.php?foodid=30&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('margariini', 'http://www.fineli.fi/food.php?foodid=593&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('juusto', 'http://www.fineli.fi/food.php?foodid=29239&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kerma', 'http://www.fineli.fi/food.php?foodid=29066&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('voi', 'http://www.fineli.fi/food.php?foodid=500&lang=fi');
 
-INSERT INTO CATEGORY (category_name) VALUES ('Makeat leivonnaiset');
-INSERT INTO CATEGORY (category_name) VALUES ('Suolaiset leivonnaiset');
-INSERT INTO CATEGORY (category_name) VALUES ('Jälkiruuat');
-INSERT INTO CATEGORY (category_name) VALUES ('Pääruuat');
-INSERT INTO CATEGORY (category_name) VALUES ('Salaatit');
-INSERT INTO CATEGORY (category_name) VALUES ('Keitot');
-INSERT INTO CATEGORY (category_name) VALUES ('Alkuruuat');
+INSERT INTO CATEGORY (category_name, information) VALUES ('Makeat leivonnaiset', 'Hyviä pullia ja muuta makeaa');
+INSERT INTO CATEGORY (category_name, information) VALUES ('Suolaiset leivonnaiset', 'Suolaisia piiraita ja kaikkea muuta pientä purtavaa');
+INSERT INTO CATEGORY (category_name, information) VALUES ('Jälkiruuat', 'Suussasulavia jälkiruokia hyvän aterian kruunaajiksi');
+INSERT INTO CATEGORY (category_name, information) VALUES ('Pääruuat', 'Nämä ruuat vievät varmasti nälkäsi pois');
+INSERT INTO CATEGORY (category_name, information) VALUES ('Salaatit', 'Vihreä on terveellistä. Valmista myös pääruokien oheen pienempiä määriä.');
+INSERT INTO CATEGORY (category_name, information) VALUES ('Keitot', 'Keitot ovat hyvää toimistotyöläisen ruokaa.');
+INSERT INTO CATEGORY (category_name, information) VALUES ('Alkuruuat', 'Alkuruokia, kuten tapaksia ja muuta pientä ruokahalua nostattavaa');
 
 INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) 
     VALUES ('Pulla', 'Makeat leivonnaiset', '25', 'Liuota hiiva kädenlämpöiseen maitoon. Sekoita joukkoon suola, sokeri, kardemumma ja muna. Lisää jauhot vähitellen, aluksi vatkaten, jotta ilmaa sitoutuu taikinaan. Alusta taikina hyvin vaivaten. Lisää pehmeä rasva alustamisen loppupuolella. Laita taikina peitettynä kohoamaan lämpimään, vedottomaan paikkaan. Kun taikina on kohonnut kaksinkertaiseksi, ota se leivinpöydälle ja vaivaa taikinasta ilmakuplat pois. Leivo taikinasta haluamasi muotoisia pullia. Kohota pullat kaksinkertaisiksi, voitele ne munalla ja koristele raesokerilla ennen paistamista. Paista pikkupullat ja pienet leivonnaiset n. 225-asteisen uunin keskitasolla 5-10 min. Paista pitkot ja muut isommat vehnäleivät n. 200-asteisen uunin alatasolla 20-25 min.', 'http://www.myllynparas.fi/files/images/300_reseptikuvat/makeat_leivonnaiset/pulla-myllyn-paras-300.jpg', 'http://www.myllynparas.fi/suomi/reseptit/makeat_leivonnaiset/pullat_ja_wienerit/pulla/', NOW());
@@ -19,7 +28,28 @@ INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture,
 INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) 
     VALUES ('Itämainen kana-pastasalaatti', 'Salaatit', '4', '1. Ruskista broilerinfileet nopeasti voi-öljyseoksessa molemmin puolin kauniin ruskeiksi. Mausta suolalla ja mustapippurilla. Sammuta liesi ja anna vetäytyä kannen alla kypsiksi salaatin teon ajan. 2. Keitä riisipastaa pakkauksen ohjeen mukaan ja huuhtele lopuksi kylmällä vedellä. Viipaloi kevätsipulit ja kurkut ohuiksi viipaleiksi. Suikaloi paprika. Valuta pastat ja sekoita muiden ainesten kanssa. 3. Leikkaa broilerit kuutioksi. Sekoita mangochutney, soijakastike ja chilitahna keskenään ja kääntele broilerit kastikkeessa. Nosta palat salaattiin.','http://kotiliesi.fi/wp-content/uploads/reseptit/186948-kanasalaatti-630x400.jpg','http://kotiliesi.fi/ruoka/reseptit/itamainen-kana-pastasalaatti', NOW());
 
-INSERT INTO RECIPE_INGREDIENT (recipe_id, ingredient_id, amount, unit) 
-    VALUES ('1', '1', '10', 'dl');
-INSERT INTO RECIPE_INGREDIENT (recipe_id, ingredient_id, amount, unit)
-    VALUES ('2', '2', '5', 'dl');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('ml', 'millilitra');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('cl', 'senttilitra');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('dl', 'desilitra');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('l', 'litra');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('g', 'gramma');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('kg', 'kilo');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('ripaus', 'vähäsen');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('tl', 'teelusikka');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('rkl', 'ruokalusikka');
+INSERT INTO UNIT (unit_name, information)
+    VALUES ('kpl', 'kappale');
+
+INSERT INTO RECIPE_INGREDIENT (recipe_id, amount, unit, ingredient) 
+    VALUES ('1','10', 'dl', 'kevytmaito');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '1', 'tl', 'suola');

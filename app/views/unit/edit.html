@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+
+<h1>Muokkaa mittayksikköä: {{ attributes.unit_name}}</h1>
+
+{% if errors %}
+<div class="alert alert-danger">
+    <ul>
+        {% for error in errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<form method="post" action="{{base_path}}/unit/{{attributes.unit_name}}/edit">
+
+    <div class="form-group">
+        <label>Mittayksikön lisätietoja</label>
+        <input name="information" class="form-control" type="text" value="{{attributes.information}}">
+    </div>
+
+    <p>
+        {{forms.update_button("#{base_path}/unit/#{unit_name}")}}
+    </p>
+
+</form>
+{% endblock %}

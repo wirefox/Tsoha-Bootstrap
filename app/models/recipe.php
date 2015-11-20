@@ -19,6 +19,7 @@ class Recipe extends BaseModel {
     public static function all() {
         $query = DB::connection()->prepare('SELECT * FROM Recipe');
         $query->execute();
+
         $rows = $query->fetchAll();
         $recipes = array();
 
@@ -94,8 +95,7 @@ class Recipe extends BaseModel {
             'picture' => $this->picture,
             'recipe_source' => $this->recipe_source));
 
-        $row = $query->fetch();
-
+//        $row = $query->fetch(); TÄMÄ RIVI PITÄÄ EHKÄ LAITTAA TAKAISIN (POISTETTU 20.11)
         //$this->id = $row['id'];
 //        Kint::dump($row);
     }

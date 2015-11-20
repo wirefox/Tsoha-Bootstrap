@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+
+<h1>Reseptipankki</h1>
+
+{% if user_logged_in %}
+{{forms.add_button("#{base_path}/ingredient/new", 'Lisää uusi raaka-aine')}}
+{% endif %}
+
+<h3>Raaka-aineet</h3>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nimi</th>
+            <th>Ravitsemustiedot (linkki Fineliin)</th>
+            {% if user_logged_in %}
+            <th></th>
+            <th></th>
+            {% endif %}
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for ingredient in ingredients %}
+        <tr>
+            <td><a href="{{base_path}}/ingredient/{{ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</a></td>
+            <td><a href="{{ingredient.nutrition}}">ravitsemustiedot {{ingredient.ingredient_name}}</a></td>
+            {% if user_logged_in %}              
+            <td>{{forms.edit_button("#{base_path}/ingredient/#{ingredient.ingredient_name}/edit")}}</td>
+            <td>{{forms.destroy_button("#{base_path}/ingredient/#{ingredient_name}/destroy")}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

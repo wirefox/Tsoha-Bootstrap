@@ -12,10 +12,6 @@
 {{forms.add_button("#{base_path}/recipe/#{recipe.id}new", 'Lisää uusi resepti')}}
 {% endif %}
 
-<!--<p>
-    <a href="{{base_path}}/recipe/new" class="btn btn-success">Lisää resepti</a>
-</p>-->
-
 <h3>Reseptit</h3>
 
 <table class="table table-striped table-bordered">
@@ -25,7 +21,9 @@
             <th>Kategoria</th>
             <th>Lähde</th>
             <th>Lisätty</th>
+            {% if user_logged_in %}
             <th></th>
+            {% endif %}
         </tr>
     </thead>   
 
@@ -44,5 +42,4 @@
         {% endfor %}
     </tbody>
 </table>
-
 {% endblock %}

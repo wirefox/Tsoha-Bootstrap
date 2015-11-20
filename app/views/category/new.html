@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+
+<h1>Lisää uusi kategoria</h1>
+
+<form method="post" action="{{base_path}}/category">
+    <div class="form-group">
+        <label>Nimi</label>
+        <input name="ingredient_name" class="form-control" type="text" value="{{attributes.category_name}}">
+    </div>
+
+    <!--    <div class="form-group">
+            <button type="submit" class="btn btn-primary">Lisää</button>
+        </div>-->
+
+    <p>
+        {{forms.save_button("#{base_path}/category/#{category.name}/save", 'Lisää')}}
+    </p>
+
+</form>
+{% endblock %}

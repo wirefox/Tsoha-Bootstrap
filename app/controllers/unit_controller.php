@@ -29,7 +29,7 @@ class UnitController extends BaseController {
 
         if (count($errors) == 0 && $duplicate == null) {
             $unit->save();
-            Redirect::to('/unit/', array('message' => 'Mittayksikkö lisätty reseptipankkiin.'));
+            Redirect::to('/unit', array('message' => 'Mittayksikkö lisätty reseptipankkiin.'));
         } else if ($duplicate != null) {
             View::make('unit/new.html', array('attributes' => $attributes, 'message' => 'Mittayksikkö on jo reseptipankissa.'));
         } else {

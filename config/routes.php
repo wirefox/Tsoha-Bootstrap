@@ -15,7 +15,7 @@ $routes->post('/logout', function() {
     UserController::logout();
 });
 
-//RESEPTI:
+//RECIPE:
 //Etusivu (reseptien listaussivu)
 $routes->get('/', function() {
     RecipeController::index();
@@ -56,7 +56,7 @@ $routes->post('/recipe/:id/destroy', function($id) {
     RecipeController::destroy($id);
 });
 
-//RAAKA-AINE:
+//INGREDIENT:
 $routes->get('/ingredient', function() {
     IngredientController::index();
 });
@@ -84,7 +84,7 @@ $routes->post('/ingredient/:ingredient_name/destroy', function($ingredient_name)
     IngredientController::destroy($ingredient_name);
 });
 
-// RESEPTIEN RAAKA-AINEIDEN REITIT:
+// RECIPE_INGREDIENT:
 $routes->get('/recipe/:id/recipe_ingredient', function($id) {
     RecipeIngredientController::create($id);
 });
@@ -92,7 +92,7 @@ $routes->post('/recipe/:id/recipe_ingredient', function($id) {
     RecipeIngredientController::storeNew($id);
 });
 
-// KATEGORIOIDEN REITIT:
+// CATEGORY:
 $routes->get('/category', function() {
     CategoryController::index();
 });
@@ -121,7 +121,7 @@ $routes->post('/category/:category_name/destroy', function($category_name) {
     CategoryController::destroy($category_name);
 });
 
-//MITTAYKSIKKÖ:
+//UNIT:
 $routes->get('/unit', function() {
     UnitController::index();
 });
@@ -150,7 +150,7 @@ $routes->post('/unit/:unit_name/destroy', function($unit_name) {
 });
 
 
-//HELLOWORLDCONTROLLERIN REITTI
+//HELLOWORLDCONTROLLER:
 $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
 });

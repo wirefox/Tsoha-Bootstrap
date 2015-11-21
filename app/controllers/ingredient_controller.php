@@ -12,12 +12,11 @@ class IngredientController extends BaseController {
         View::make('ingredient/new.html');
     }
 
-    //TÄSSÄ JOTAKIN HÄIKKÄÄ (ErrorException: Undefined index: ingredient_name)??
     public static function store() {
         self::check_logged_in();
-        
+
         $params = $_POST;
-        
+
         $attributes = array(
             'ingredient_name' => $params['ingredient_name'],
             'nutrition' => $params['nutrition']
@@ -27,10 +26,10 @@ class IngredientController extends BaseController {
         $duplicate = Ingredient::find($params['ingredient_name']);
 
         $errors = $ingredient->errors();
-        
+
         if (count($errors) == 0 && $duplicate == null) {
             $ingredient->save();
-            Redirect::to('/ingredient/', array('message' => 'Raaka-aine lisätty reseptipankkiin.'));
+            Redirect::to('/ingredient', array('message' => 'Raaka-aine lisätty reseptipankkiin.'));
         } else if ($duplicate != null) {
             View::make('ingredient/new.html', array('attributes' => $attributes, 'message' => 'Raaka-aine on jo reseptipankissa.'));
         } else {

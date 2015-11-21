@@ -26,9 +26,9 @@ class RecipeIngredientController extends BaseController {
 
         $attributes = array(
             'recipe_id' => $params['recipe_id'],
-            'ingredient' => $params['ingredient'],
             'amount' => $params['amount'],
-            'unit' => $params['unit']
+            'unit' => $params['unit'],
+            'ingredient' => $params['ingredient']
         );
         $recipe_ingredient = new RecipeIngredient($attributes);
         $recipe_ingredient->save();

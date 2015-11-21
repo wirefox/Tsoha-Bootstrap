@@ -29,7 +29,7 @@ class CategoryController extends BaseController {
 
         if (count($errors) == 0 && $duplicate == null) {
             $category->save();
-            Redirect::to('/category/', array('message' => 'Kategoria lisätty reseptipankkiin.'));
+            Redirect::to('/category', array('message' => 'Kategoria lisätty reseptipankkiin.'));
         } else if ($duplicate != null) {
             View::make('category/new.html', array('attributes' => $attributes, 'message' => 'Kategoria on jo olemassa.'));
         } else {

@@ -4,15 +4,23 @@
 
 <h1>Lisää uusi kategoria</h1>
 
+{% if message %}
+<p class="alert alert-success">{{message}}</p>
+{% endif %}
+
+
 <form method="post" action="{{base_path}}/category">
+
     <div class="form-group">
         <label>Nimi</label>
-        <input name="ingredient_name" class="form-control" type="text" value="{{attributes.category_name}}">
+        <input name="category_name" class="form-control" type="text" value="{{attributes.category_name}}">
     </div>
 
-    <!--    <div class="form-group">
-            <button type="submit" class="btn btn-primary">Lisää</button>
-        </div>-->
+    <div class="form-group">
+        <label>Kategorian lisätietoja</label>
+        <input name="information" class="form-control" type="text" value="{{attributes.information}}">
+    </div>
+
 
     <p>
         {{forms.save_button("#{base_path}/category/#{category.name}/save", 'Lisää')}}

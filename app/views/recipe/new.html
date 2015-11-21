@@ -60,13 +60,16 @@
             {% if recipe_ingredients.ingredient != null %}
             <option value="{{recipe_ingredients.ingredient}}">{{recipe_ingredients.ingredient}}</option>
             {% endif %}
+            {% if attributes.ingredient_name == null %}
+            <option>valitse...</option>
+            {% else %}
+            <option value="{{attributes.ingredient_name}}">{{attributes.ingredient_name}}</option>
+            {% endif %}
             {% for ingredient in ingredients %}
             <option value="{{ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
             {% endfor %}
         </select>
     </div>
-
-    <h5> Tähän yläpuolelle pitäisi tulla raaka-aineiden valinta reseptille.. </h5>
 
     <h3>Valmistusohjeet</h3>
 

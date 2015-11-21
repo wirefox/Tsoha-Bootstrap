@@ -4,6 +4,11 @@
 
 <h1>Muokkaa raaka-ainetta: {{ attributes.ingredient_name}}</h1>
 
+{% if message %}
+<p class="alert alert-success">{{message}}</p>
+{% endif %}
+
+
 {% if errors %}
 <div class="alert alert-danger">
     <ul>

@@ -30,23 +30,20 @@
 
 <h2>Ainekset</h2>
 
-<h5> Tähän pitäisi tulla listaus reseptin aineksista </h5>
-
 <ul>
     {% for recipe_ingredient in recipe_ingredients %}
-    <li><strong>{{recipe_ingredient.amount}} </strong> {{recipe_ingredient.unit}}</li>
+    <strong>{{recipe_ingredient.amount}} </strong> {{recipe_ingredient.unit}} {{recipe_ingredient.ingredient}} <br>   
     {% endfor %}
 </ul>
 
 <h2>Valmistusohjeet</h2>
 {{recipe.instruction}}
 
-<!--<ol>
-    <li></li>
-</ol>-->
-
 <br>
 <br>
-<footer><strong>Lähde: </strong> <a href="{{recipe.recipe_source}}">{{recipe.recipe_source}}</a><br>
-    <strong>Lisätty: </strong>{{recipe.added}}</footer>
+<footer>
+    <strong>Reseptin lähde: </strong> <a href="{{recipe.recipe_source}}">{{recipe.recipe_source}}</a><br>
+    <strong>Kuvan lähde: </strong> {{recipe.picture}}<br>
+    <strong>Lisätty reseptipankkiin: </strong>{{recipe.added}}
+</footer>
 {% endblock %}

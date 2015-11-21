@@ -6,7 +6,7 @@ class Category extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array('category_name', 'information');
+        $this->validators = array('validate_category_name', 'validate_information');
     }
 
     public static function all() {
@@ -40,8 +40,8 @@ class Category extends BaseModel {
 
     public function save() {
         $query = DB::connection()->prepare
-                ('INSERT INTO Category (category_name) '
-                . 'VALUES (:category_name) RETURNING category_name');
+                ('INSERT INTO Category (category_name, information) '
+                . 'VALUES (:category_name, :information) RETURNING category_name');
         $query->execute(array(
             'category_name' => $this->category_name,
             'information' => $this->information));

@@ -51,8 +51,8 @@ class RecipeController extends BaseController {
     public static function show($id) {
         //    self::check_logged_in();
         $recipe = Recipe::find($id);
-        $ingredients = RecipeIngredient::allRecipeIngredients($id);
-        View::make('recipe/show.html', array('recipe' => $recipe, 'ingredients' => $ingredients));
+        $recipe_ingredients = RecipeIngredient::allRecipeIngredients($id);
+        View::make('recipe/show.html', array('recipe' => $recipe, 'recipe_ingredients' => $recipe_ingredients));
     }
 
     //muokkauslomakkeen esittäminen:

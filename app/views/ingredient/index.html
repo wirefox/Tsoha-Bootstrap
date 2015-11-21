@@ -4,6 +4,10 @@
 
 <h1>Reseptipankki</h1>
 
+{% if message %}
+<p class="alert alert-success">{{message}}</p>
+{% endif %}
+
 {% if user_logged_in %}
 {{forms.add_button("#{base_path}/ingredient/new", 'Lisää uusi raaka-aine')}}
 {% endif %}

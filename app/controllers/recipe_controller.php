@@ -6,6 +6,20 @@ class RecipeController extends BaseController {
         $recipes = Recipe::all();
         View::make('recipe/index.html', array('recipes' => $recipes));
     }
+    
+//    public static function index() {
+//        self::check_logged_in();
+//        $user_logged_in = self::get_user_logged_in();
+//        $params = $_GET;
+//        $options = array('id' => $user_logged_in->id);
+//
+//        if (isset($params['search'])) {
+//
+//            $options['search'] = $params['search'];
+//        }
+//        $recipes = Recipe::all($options);
+//        View::make('recipe/index.html', array('recipes' => $recipes));
+//    }
 
     public static function create() {
         self::check_logged_in();

@@ -16,6 +16,25 @@ class Recipe extends BaseModel {
         $this->validators = array('validate_name', 'validate_category', 'validate_portion', 'validate_instruction', 'validate_picture', 'validate_recipe_source');
     }
 
+//    public static function all($options) {
+//        $query_string = 'SELECT * FROM Recipe WHERE id = :id';
+//        $options = array('id' => $options['id']);
+//        if (isset($options['search'])) {
+//            $query_string .= ' AND recipe_name LIKE :like';
+//            $options['like'] = '%' . $options['search'] . '%';
+//        }
+//        $query = DB::connection()->prepare($query_string);
+//        $query->execute($options);
+//
+//        $rows = $query->fetchAll();
+//        $recipes = array();
+//
+//        foreach ($rows as $row) {
+//            $recipes[] = new Recipe($row);
+//        }
+//        return $recipes;
+//    }
+
     public static function all() {
         $query = DB::connection()->prepare('SELECT * FROM Recipe');
         $query->execute();
@@ -96,7 +115,7 @@ class Recipe extends BaseModel {
             'recipe_source' => $this->recipe_source));
 
 //        $row = $query->fetch(); TÄMÄ RIVI PITÄÄ EHKÄ LAITTAA TAKAISIN (POISTETTU 20.11)
-        //$this->id = $row['id'];
+//$this->id = $row['id'];
 //        Kint::dump($row);
     }
 

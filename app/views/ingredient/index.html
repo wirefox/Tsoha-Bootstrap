@@ -33,7 +33,7 @@
             <td><a href="{{ingredient.nutrition}}">ravitsemustiedot {{ingredient.ingredient_name}}</a></td>
             {% if user_logged_in %}              
             <td>{{forms.edit_button("#{base_path}/ingredient/#{ingredient.ingredient_name}/edit")}}</td>
-            <td>{{forms.destroy_button("#{base_path}/ingredient/#{ingredient_name}/destroy")}}</td>
+            <td>{{forms.destroy_button("#{base_path}/ingredient/#{ingredient.ingredient_name}/destroy")}}</td>
             {% endif %}
         </tr>
         {% endfor %}

@@ -33,7 +33,7 @@
 
             <td><a href="{{base_path}}/recipe/{{recipe.id}}">{{recipe.recipe_name}}</td>
             <td>{{recipe.category}}</td>
-            <td><a href="{{recipe.recipe_source}}">{{recipe.recipe_source}}</a></td>
+            <td>{{recipe.recipe_source}}</td>
             <td>{{recipe.added}}</td>
             {% if user_logged_in %}
             <td>{{forms.recipelist_edit_button("#{base_path}/recipe/#{recipe.id}/edit")}}</td>

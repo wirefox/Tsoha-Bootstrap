@@ -33,7 +33,6 @@ Toimintoja:
 * reseptien katselu
 
 Ongelmia/keskeneräisiä asioita tällä hetkellä:
-* Raaka-aineen, kategorian ja mittayksikön poistamisessa on ongelmaa (reittiongelma ilmeisesti)
 * Raaka-aineita ei pysty lisäämään montaa kerralla reseptille. Suunnitelmissa on, jos aika ja taidot riittävät, toteuttaa lomakkeeseen dynaaminen add row -tyylinen toteutus, jossa ylläpitäjä voi syöttää juuri niin monta raaka-ainetta reseptille kuin on tarvis.
 * Raaka-aineita ei pysty muokkaamaan reseptillä.
 * Hakutoiminnallisuutta ei ole aloitettu

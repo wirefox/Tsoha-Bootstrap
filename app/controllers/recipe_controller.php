@@ -11,7 +11,8 @@ class RecipeController extends BaseController {
         self::check_logged_in();
         $ingredients = Ingredient::all();
         $categories = Category::all();
-        View::make('recipe/new.html', array('ingredients' => $ingredients, 'categories' => $categories));
+        $units = Unit::all();
+        View::make('recipe/new.html', array('ingredients' => $ingredients, 'categories' => $categories, 'units' => $units));
     }
 
     public static function store() {
@@ -62,7 +63,8 @@ class RecipeController extends BaseController {
         $recipe = Recipe::find($id);
         $recipe_ingredients = RecipeIngredient::allRecipeIngredients($id);
         $ingredients = Ingredient::all();
-        View::make('recipe/edit.html', array('attributes' => $recipe, 'recipe_ingredients' => $recipe_ingredients, 'ingredients' => $ingredients));
+        $units = Unit::all();
+        View::make('recipe/edit.html', array('attributes' => $recipe, 'recipe_ingredients' => $recipe_ingredients, 'ingredients' => $ingredients, 'units' => $units));
     }
 
     //muokkauslomakkeen käsittely:

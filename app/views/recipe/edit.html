@@ -23,14 +23,17 @@
     <div class="form-group">
         <label>Kategoria</label>
         <select class="form-control" name="category">
+            {% if categories.category_name != null %}
+            <option value="{{categories.category_name}}">{{categories.category_name}}</option>
+            {% endif %}
+            {% if attributes.category == null %}
+            <option>valitse...</option>
+            {% else %}
             <option value="{{attributes.category}}">{{attributes.category}}</option>
-            <option value="Alkuruuat">Alkuruuat</option>
-            <option value="Keitot">Keitot</option>
-            <option value="Salaatit">Salaatit</option>
-            <option value="Pääruuat">Pääruuat</option>
-            <option value="Jälkiruuat">Jälkiruuat</option>
-            <option value="Suolaiset leivonnaiset">Suolaiset leivonnaiset</option>  
-            <option value="Makeat leivonnaiset">Makeat leivonnaiset</option>  
+            {% endif %}
+            {% for category in categories %}
+            <option value="{{category.category_name}}">{{category.category_name}}</option>
+            {% endfor %}
         </select>
     </div>
 

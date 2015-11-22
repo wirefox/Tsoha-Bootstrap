@@ -10,7 +10,8 @@ class RecipeController extends BaseController {
     public static function create() {
         self::check_logged_in();
         $ingredients = Ingredient::all();
-        View::make('recipe/new.html', array('ingredients' => $ingredients));
+        $categories = Category::all();
+        View::make('recipe/new.html', array('ingredients' => $ingredients, 'categories' => $categories));
     }
 
     public static function store() {

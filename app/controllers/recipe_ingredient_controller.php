@@ -6,7 +6,8 @@ class RecipeIngredientController extends BaseController {
         self::check_logged_in();
         $recipe = Recipe::find($recipe_id);
         $ingredients = Ingredient::all();
-        View::make('recipe_ingredient/new.html', array('recipe' => $recipe, 'ingredients' => $ingredients));
+        $units = Unit::all();
+        View::make('recipe_ingredient/new.html', array('recipe' => $recipe, 'ingredients' => $ingredients, 'units' => $units));
     }
 
     public static function store($recipe_id, $amount, $unit, $ingredient) {

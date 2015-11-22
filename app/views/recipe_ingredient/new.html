@@ -18,7 +18,19 @@
 
     <div class="form-group">
         <label>Yksikkö</label>
-        <input name="unit" class="form-control" type="text">
+        <select class="form-control" name="unit">
+            {% if units.unit_name != null %}
+            <option value="{{units.unit_name}}">{{units.unit_name}}</option>
+            {% endif %}
+            {% if attributes.unit == null %}
+            <option>valitse...</option>
+            {% else %}
+            <option value="{{attributes.unit}}">{{attributes.unit}}</option>
+            {% endif %}
+            {% for unit in units %}
+            <option value="{{unit.unit_name}}">{{unit.unit_name}}</option>
+            {% endfor %}
+        </select>
     </div>
 
     <!--    <div class="form-group">

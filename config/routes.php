@@ -85,6 +85,7 @@ $routes->post('/ingredient/:ingredient_name/destroy', function($ingredient_name)
 });
 
 // RECIPE_INGREDIENT:
+//Tämä reitti ei tällä hetkellä käytössä, koska raaka-aineita ei lisätä reseptillä(?):
 $routes->get('/recipe/:id/recipe_ingredient', function($id) {
     RecipeIngredientController::create($id);
 });

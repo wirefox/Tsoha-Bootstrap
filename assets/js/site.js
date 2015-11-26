@@ -16,28 +16,29 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    var i = 1;
-    $("#add_row").click(function () {
-        $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='amount" + i + "' type='text' placeholder='Määrä' class='form-control input-md'/> \n\ </td>\n\
-        <td><input  name='unit" + i + "' type='text' placeholder='Mittayksikkö'  class='form-control input-md' > </td>\n\
-        <td><input  name='ingredient" + i + "' type='text' placeholder='Raaka-aine'  class='form-control input-md'></td>");
+//ADD ROW / DELETE ROW; EI KÄYTÖSSÄ, KOSKA LIIAN HANKALA TOTEUTTAA TÄMÄN KURSSIN PUITTEISSA
+//$(document).ready(function () {
+//    var i = 1;
+//    $("#add_row").click(function () {
+//        $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='amount" + i + "' type='text' placeholder='Määrä' class='form-control input-md'/> \n\ </td>\n\
+//        <td><input  name='unit" + i + "' type='text' placeholder='Mittayksikkö'  class='form-control input-md' > </td>\n\
+//        <td><input  name='ingredient" + i + "' type='text' placeholder='Raaka-aine'  class='form-control input-md'></td>");
+//
+////TÄNNE PITÄISI JOTENKIN SAADA ALASVETOVALIKOIDEN TIEDOT (unit & ingredient)!!!??!
+//
+//        $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
+//        i++;
+//    });
+//    $("#delete_row").click(function () {
+//        if (i > 1) {
+//            $("#addr" + (i - 1)).html('');
+//            i--;
+//        }
+//    });
+//
+//});
 
-//TÄNNE PITÄISI JOTENKIN SAADA ALASVETOVALIKOIDEN TIEDOT (unit & ingredient)!!!??!
-
-        $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
-        i++;
-    });
-    $("#delete_row").click(function () {
-        if (i > 1) {
-            $("#addr" + (i - 1)).html('');
-            i--;
-        }
-    });
-
-});
-
-//TESTI:
+//TESTI USEAMMAN RAAKA-AINEEN LISÄÄMISEKSI YHDELLÄ KERRALLA:
 //$(document).ready(function () {
 //    var i = 1;
 //    $("#add_row").click(function () {

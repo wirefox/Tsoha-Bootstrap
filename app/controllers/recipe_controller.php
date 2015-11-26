@@ -2,9 +2,6 @@
 
 class RecipeController extends BaseController {
 
-    //KORJATTAVAA: RECIPEINGREDIENT(CONTROLLER) ERRORIEN VÄLITYS? 
-    //MITEN RESEPTILLE SAA LISÄTTYÄ USEAMMAN RAAKA-AINEEN KERRALLAAN?
-
     public static function index() {
         $recipes = Recipe::all();
         View::make('recipe/index.html', array('recipes' => $recipes));
@@ -32,26 +29,18 @@ class RecipeController extends BaseController {
             'recipe_source' => $params['recipe_source']
         );
 
-        $recipe_ingredients = array(
-            'amount' => $params['amount'],
-            'unit' => $params['unit'],
-            'ingredient' => $params['ingredient']
-        );
-
-        $ingredients = Ingredient::all();
         $categories = Category::all();
-        $units = Unit::all();
 
         $recipe = new Recipe($attributes);
         $errors = $recipe->errors();
 
         if (count($errors) == 0) {
             $recipe->save();
-            RecipeIngredientController::store($recipe->id, $params['amount'], $params['unit'], $params['ingredient']);
-            Redirect::to('/recipe/' . $recipe->id, array('message' => 'Resepti on lisätty reseptipankkiin.'));
+
+            Redirect::to('/recipe/' . $recipe->id, array('message' => 'Resepti on lisätty reseptipankkiin. Lisää seuraavaksi lisää raaka-aineita reseptille.'));
         } else {
             View::make('recipe/new.html', array('errors' => $errors, 'attributes' => $attributes,
-                'recipe_ingredients' => $recipe_ingredients, 'ingredients' => $ingredients, 'categories' => $categories, 'units' => $units));
+                'categories' => $categories));
         }
     }
 
@@ -112,5 +101,4 @@ class RecipeController extends BaseController {
 
         Redirect::to('/recipe', array('message' => 'Resepti on poistettu onnistuneesti.'));
     }
-
 }

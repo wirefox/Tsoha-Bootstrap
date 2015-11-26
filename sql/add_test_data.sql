@@ -13,6 +13,17 @@ INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('juusto', 'http://ww
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kerma', 'http://www.fineli.fi/food.php?foodid=29066&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('voi', 'http://www.fineli.fi/food.php?foodid=500&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kardemumma', 'http://www.fineli.fi/food.php?foodid=500&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('mansikka', 'http://www.fineli.fi/food.php?foodid=447&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('vadelma', 'http://www.fineli.fi/food.php?foodid=448&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('mustikka', 'http://www.fineli.fi/food.php?foodid=442&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('porkkana', 'http://www.fineli.fi/food.php?foodid=300&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('sipuli', 'http://www.fineli.fi/food.php?foodid=335&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('peruna', 'http://www.fineli.fi/food.php?foodid=11680&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('omena', 'http://www.fineli.fi/food.php?foodid=11060&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('inkivääri', 'http://www.fineli.fi/food.php?foodid=33023&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('sitruuna', 'http://www.fineli.fi/food.php?foodid=11048&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('chili', 'http://www.fineli.fi/food.php?foodid=31557&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('mustapippuri', 'http://www.fineli.fi/food.php?foodid=31557&lang=fi');
 
 INSERT INTO CATEGORY (category_name, information) VALUES ('Makeat leivonnaiset', 'Hyviä pullia ja muuta makeaa');
 INSERT INTO CATEGORY (category_name, information) VALUES ('Suolaiset leivonnaiset', 'Suolaisia piiraita ja kaikkea muuta pientä purtavaa');
@@ -67,4 +78,20 @@ INSERT INTO RECIPE_INGREDIENT (recipe_id, amount, unit, ingredient)
 INSERT INTO RECIPE_INGREDIENT (recipe_id, amount, unit, ingredient) 
     VALUES ('1','150', 'g', 'margariini');
 INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
-    VALUES ('2', '1', 'tl', 'suola');
+    VALUES ('2', '3', 'dl', 'vehnäjauho');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '125', 'g', 'voi');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '0.25', 'tl', 'suola');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '1', 'rkl', 'vesi');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '3', 'dl', 'kerma');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '3', 'dl', 'kevytmaito');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '6', 'kpl', 'kananmuna');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '350', 'g', 'juusto');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('2', '1', 'ripaus', 'mustapippuri');

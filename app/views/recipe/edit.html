@@ -2,6 +2,8 @@
 {% block content %}
 {% import "macros/forms.html" as forms %}
 
+<!--KORJATTAVAA: RAAKA-AINEIDEN JA NIIDEN MÄÄRIEN MUOKKAUS??-->
+
 <h1>Muokkaa reseptiä: {{attributes.recipe_name}}</h1>
 
 {% if errors %}
@@ -73,11 +75,6 @@
     <p>
         {{forms.update_button("#{base_path}/recipe/#{recipe.id}/update")}}
     </p>
-
-    <!--VANHAT:
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Tallenna muutokset</button>
-        </div>-->
 
 </form>
 {% endblock %}

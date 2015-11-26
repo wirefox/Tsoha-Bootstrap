@@ -66,6 +66,9 @@ class Category extends BaseModel {
 
     public function validate_category_name() {
         $errors = array();
+        if ($this->category_name == 'valitse...') {
+            $errors[] = 'Valitse reseptille kategoria.';
+        }
         if ($this->category_name == '' || $this->category_name == null) {
             $errors[] = 'Nimi ei saa olla tyhjä.';
         }

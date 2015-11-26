@@ -23,15 +23,17 @@
 
     <div class="form-group">
         <label>Kategoria</label>
-        <select class="form-control" name="category">
-            {% if categories.category_name != null %}
-            <option value="{{categories.category_name}}">{{categories.category_name}}</option>
+        <select class="form-control" name="category" value="{{attributes.category}}">
+            <!--        JOS KATEGORIA ON JO AIEMMIN VALITTU:-->
+            {% if attributes.category != null %}
+            <option value="{{attributes.category}}">{{attributes.category}}</option>
             {% endif %}
             {% if attributes.category == null %}
-            <option>valitse...</option>
+            <option value="">valitse...</option>
             {% else %}
             <option value="{{attributes.category}}">{{attributes.category}}</option>
             {% endif %}
+            <!--        VAIHTOEHDOT ALASVETOVALIKKOON:-->
             {% for category in categories %}
             <option value="{{category.category_name}}">{{category.category_name}}</option>
             {% endfor %}
@@ -45,7 +47,8 @@
 
     <h3>Ainesosat</h3>
 
-    <h4> HUOM! Tällä hetkellä on mahdollista lisätä reseptille vain yksi raaka-aine. Tulossa mahdollisuus lisätä useampi kerralla.</h4>
+    <h4> HUOM! Tällä hetkellä on mahdollista lisätä reseptille vain yksi raaka-aine. 
+        Tulossa saattaa olla mahdollisuus lisätä useampi kerralla.</h4>
 
     <div class="form-group">
         <div class="row clearfix">
@@ -73,19 +76,20 @@
                                 1
                             </td>
                             <td>
-                                <!-- pitäisikö name olla amounts[]?-->
-                                <input type="text" name='amount'  placeholder='Määrä' class="form-control" value="{{recipeIngredient.amount}}"/>
+                                <!-- pitäisikö name olla amounts[], jos annataan monta kerralla?-->
+                                <input type="text" name='amount'  placeholder='Määrä' class="form-control" value="{{recipe_ingredient.amount}}"/>
                             </td>
                             <td>
-                                <!-- pitäisikö name olla units[]?-->
-                                <select id="unit0" class="form-control" name="unit" placeholder='Mittayksikkö'>
-                                    {% if units.unit_name != null %}
-                                    <option value="{{units.unit_name}}">{{units.unit_name}}</option>
+                                <!--                                pitäisikö name olla units[], jos annataan monta kerralla?-->
+                                <!--                                <select id="unit0" class="form-control" name="unit" placeholder='Mittayksikkö' value="{{recipeIngredient.unit}}">-->
+                                <select class="form-control" name="unit" placeholder='Mittayksikkö' value="{{recipe_ingredient.unit}}">
+                                    {% if recipe_ingredient.unit != null %}
+                                    <option value="{{recipe_ingredient.unit}}">{{recipe_ingredient.unit}}</option>
                                     {% endif %}
-                                    {% if attributes.unit_name == null %}
-                                    <option>valitse...</option>
+                                    {% if recipe_ingredient.unit == null %}
+                                    <option value="">valitse...</option>
                                     {% else %}
-                                    <option value="{{attributes.unit_name}}">{{attributes.unit_name}}</option>
+                                    <option value="{{recipe_ingredient.unit}}">{{recipe_ingredient.unit}}</option>
                                     {% endif %}
                                     {% for unit in units %}
                                     <option value="{{unit.unit_name}}">{{unit.unit_name}}</option>
@@ -93,15 +97,17 @@
                                 </select>
                             </td>
                             <td>
-                                <!-- pitäisikö name olla ingredients[]?-->
-                                <select id="ingredient0" class="form-control" name="ingredient" placeholder='Raaka-aine'>
-                                    {% if recipe_ingredients.ingredient != null %}
-                                    <option value="{{recipe_ingredients.ingredient}}">{{recipe_ingredients.ingredient}}</option>
+
+                                <!--                                <select id="ingredient0" class="form-control" name="ingredient" placeholder='Raaka-aine' value="{{recipeIngredient.ingredient}}">-->
+                                <select class="form-control" name="ingredient" placeholder='Raaka-aine' value="{{recipe_ingredient.ingredient}}">
+                                    <!--                                    JOS RAAKA-AINE ON AIEMMIN JO VALITTU:-->
+                                    {% if recipe_ingredient.ingredient != null %}
+                                    <option value="{{recipe_ingredient.ingredient}}">{{recipe_ingredient.ingredient}}</option>
                                     {% endif %}
-                                    {% if attributes.ingredient_name == null %}
-                                    <option>valitse...</option>
+                                    {% if recipe_ingredient.ingredient == null %}
+                                    <option value="">valitse...</option>
                                     {% else %}
-                                    <option value="{{attributes.ingredient_name}}">{{attributes.ingredient_name}}</option>
+                                    <option value="{{recipe_ingredient.ingredient}}">{{recipe_ingredient.ingredient}}</option>
                                     {% endif %}
                                     {% for ingredient in ingredients %}
                                     <option value="{{ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
@@ -116,46 +122,6 @@
         </div>
         <a id="add_row" class="btn btn-default pull-left">Lisää rivi</a><a id='delete_row' class="pull-right btn btn-default">Poista rivi</a> <br><br>
     </div>
-
-
-    <!--    <div class="form-group">
-            <label>Määrä</label>
-            <input name="amount" class="form-control" type="text" value="{{recipeIngredient.amount}}"> 
-        </div>
-    
-        <div class="form-group">
-            <label>Yksikkö</label>
-            <select class="form-control" name="unit">
-                {% if units.unit_name != null %}
-                <option value="{{units.unit_name}}">{{units.unit_name}}</option>
-                {% endif %}
-                {% if attributes.unit_name == null %}
-                <option>valitse...</option>
-                {% else %}
-                <option value="{{attributes.unit_name}}">{{attributes.unit_name}}</option>
-                {% endif %}
-                {% for unit in units %}
-                <option value="{{unit.unit_name}}">{{unit.unit_name}}</option>
-                {% endfor %}
-            </select>
-        </div>
-    
-        <div class="form-group">
-            <label>Raaka-aine</label>
-            <select class="form-control" name="ingredient">
-                {% if recipe_ingredients.ingredient != null %}
-                <option value="{{recipe_ingredients.ingredient}}">{{recipe_ingredients.ingredient}}</option>
-                {% endif %}
-                {% if attributes.ingredient_name == null %}
-                <option>valitse...</option>
-                {% else %}
-                <option value="{{attributes.ingredient_name}}">{{attributes.ingredient_name}}</option>
-                {% endif %}
-                {% for ingredient in ingredients %}
-                <option value="{{ingredient.ingredient_name}}">{{ingredient.ingredient_name}}</option>
-                {% endfor %}
-            </select>
-        </div>-->
 
     <h3>Valmistusohjeet</h3>
 

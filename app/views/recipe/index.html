@@ -12,13 +12,16 @@
 {{forms.add_button("#{base_path}/recipe/#{recipe.id}new", 'Lisää uusi resepti')}}
 {% endif %}
 
-<!--<form method="get" action="" class="form-inline">
-    <div class="form group">
+<!--SEARCH:-->
+<form method="post" action="{{base_path}}/recipe/search" class="form-inline">
+    <div class="form group" align="right">
         <input type="text" name="search" class="form-control" placeholder="Hakusana">
     </div>
 
-    <button type="submit" class="btn btn-default">Hae</button>
-</form>-->
+    <p align="right">
+        <button type="submit" class="btn btn-default" >Hae</button>
+    </p>
+</form>
 
 <h3>Reseptit</h3>
 

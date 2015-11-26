@@ -2,6 +2,8 @@
 
 class RecipeIngredientController extends BaseController {
 
+//KORJATTAVAA: KS. STORE-METODI    
+    
     public static function create($recipe_id) {
         self::check_logged_in();
         $recipe = Recipe::find($recipe_id);
@@ -19,7 +21,14 @@ class RecipeIngredientController extends BaseController {
             'ingredient' => $ingredient
         );
         $recipe_ingredient = new RecipeIngredient($attributes);
-        $recipe_ingredient->save();
+        $errors = $recipe_ingredient->errors();
+
+        if (count($errors) == 0) {
+            $recipe_ingredient->save();
+        } else {
+            View::make('recipe/new.html', array('errors' => $errors));
+            //MITEN SAAN VIRHEET LÄHETETTYÄ RECIPECONTROLLERILLE, JOKA OIKEASTI PYYTÄÄ NEW-NÄKYMÄN UUDELLEEN??
+        }
     }
 
     public static function storeNew() {

@@ -18,11 +18,6 @@
 </form>
 {% endmacro %}
 
-<!--Poistomacro saattaa olla parempi seuraavanlaisena:-->
-<!--<form method="post" action="{{base_path}}/game/{{game.id}}/destroy" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa pelin?">
-  <button type="submit" class="btn btn-danger">Poista</button>
-</form>-->
-
 {% macro save_button(action, text) %}
 <form method="post" action="{{action}}" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">{{text|default('Tallenna')}}</button>

@@ -149,6 +149,10 @@ $routes->post('/unit/:unit_name/destroy', function($unit_name) {
     UnitController::destroy($unit_name);
 });
 
+//RECIPE SEARCH:
+$routes->post('/recipe/search', function() {
+    RecipeController::search();
+});
 
 //HELLOWORLDCONTROLLER:
 $routes->get('/hiekkalaatikko', function() {

@@ -16,25 +16,6 @@ class Recipe extends BaseModel {
         $this->validators = array('validate_name', 'validate_category', 'validate_portion', 'validate_instruction', 'validate_picture', 'validate_recipe_source');
     }
 
-//    public static function all($options) {
-//        $query_string = 'SELECT * FROM Recipe WHERE id = :id';
-//        $options = array('id' => $options['id']);
-//        if (isset($options['search'])) {
-//            $query_string .= ' AND recipe_name LIKE :like';
-//            $options['like'] = '%' . $options['search'] . '%';
-//        }
-//        $query = DB::connection()->prepare($query_string);
-//        $query->execute($options);
-//
-//        $rows = $query->fetchAll();
-//        $recipes = array();
-//
-//        foreach ($rows as $row) {
-//            $recipes[] = new Recipe($row);
-//        }
-//        return $recipes;
-//    }
-
     public static function all() {
         $query = DB::connection()->prepare('SELECT * FROM Recipe');
         $query->execute();
@@ -78,6 +59,24 @@ class Recipe extends BaseModel {
         return null;
     }
 
+    public function search($input) {
+        $search = "%" . $input . "%";
+
+        $query = DB::connection()->prepare('SELECT Recipe.id, Recipe.recipe_name FROM Recipe WHERE Recipe.recipe_name LIKE :search ');
+        $query->execute(array('search' => $search));
+
+        $rows = $query->fetchAll();
+
+        $recipes = array();
+        foreach ($rows as $row) {
+            $recipes[] = new Recipe(array(
+                'id' => $row['id'],
+                'recipe_name' => $row['recipe_name']
+            ));
+        }
+        return $recipes;
+    }
+
     public function save() {
         $query = DB::connection()->prepare
                 ('INSERT INTO Recipe (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) '
@@ -115,7 +114,7 @@ class Recipe extends BaseModel {
             'recipe_source' => $this->recipe_source));
 
 //        $row = $query->fetch(); TÄMÄ RIVI PITÄÄ EHKÄ LAITTAA TAKAISIN (POISTETTU 20.11)
-//$this->id = $row['id'];
+        //$this->id = $row['id'];
 //        Kint::dump($row);
     }
 
@@ -141,8 +140,11 @@ class Recipe extends BaseModel {
 
     public function validate_category() {
         $errors = array();
-        if ($this->category == 'Valitse...') {
-            $errors[] = 'Valitse kategoria';
+        if ($this->category == '' || $this->category == null) {
+            $errors[] = 'Reseptille pitää valita kategoria.';
+        }
+        if ($this->category == 'valitse...') {
+            $errors[] = 'Reseptille pitää valita kategoria.';
         }
         return $errors;
     }

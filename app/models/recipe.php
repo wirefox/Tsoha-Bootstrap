@@ -62,7 +62,7 @@ class Recipe extends BaseModel {
     public function search($input) {
         $search = "%" . $input . "%";
 
-        $query = DB::connection()->prepare('SELECT Recipe.id, Recipe.recipe_name FROM Recipe WHERE Recipe.recipe_name LIKE :search ');
+        $query = DB::connection()->prepare('SELECT Recipe.id, Recipe.recipe_name FROM Recipe WHERE LOWER(Recipe.recipe_name) LIKE LOWER(:search) ');
         $query->execute(array('search' => $search));
 
         $rows = $query->fetchAll();

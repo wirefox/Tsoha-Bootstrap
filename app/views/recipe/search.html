@@ -2,6 +2,18 @@
 {% block content %}
 
 <h1>Reseptipankki</h1>
+
+<!--SEARCH:-->
+<form method="post" action="{{base_path}}/recipe/search" class="form-inline">
+    <div class="form group" align="right">
+        <input type="text" name="search" class="form-control" placeholder="Hakusana">
+    </div>
+
+    <p align="right">
+        <button type="submit" class="btn btn-default" >Hae</button>
+    </p>
+</form>
+
 <h3>Hakutulokset hakusanalla {{search}}</h3>
 
 <table class="table table-condensed">

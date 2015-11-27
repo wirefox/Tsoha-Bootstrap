@@ -19,20 +19,18 @@ Yleisiä linkkejä:
 
 Reseptipankki
 
-Reseptipankki sisältää reseptejä. Jokainen resepti kuuluu yhteen kategoriaan (alkuruoka, keitto, salaatti, pääruoka, jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje. Ohjeita voi hakea ruokalajin nimen, raaka-aineen tai ruokalajikategorian perusteella. Resepteissä on  kuva valmiista ruoka-annoksesta.
+Reseptipankki sisältää reseptejä. Jokainen resepti kuuluu yhteen kategoriaan (alkuruoka, keitto, salaatti, pääruoka, jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje. Ohjeita voi hakea ruokalajin nimen, raaka-aineen tai ruokalajikategorian perusteella (tällä hetkellä toteutettu vain nimen perusteella). Resepteissä on  kuva valmiista ruoka-annoksesta.
 
 Toimintoja:
 
 * raaka-aineen syöttö ja muutos
 * raaka-aineen poisto (vain mikäli sitä ei käytetä)
+* mittayksikön syöttö ja muutos
+* mittayksikön poisto (vain mikäli sitä ei käytetä)
 * ruokalajikategorian lisääminen ja muutos
 * ruokalajikategorian poisto (vain mikäli sitä ei käytetä)
 * reseptin lisäys
 * reseptin muokkaus ja poisto
+* raaka-aineen syöttäminen reseptille
 * reseptin haku
 * reseptien katselu
-
-Ongelmia/keskeneräisiä asioita tällä hetkellä:
-* Raaka-aineita ei pysty lisäämään montaa kerralla reseptille. Suunnitelmissa on, jos aika ja taidot riittävät, toteuttaa lomakkeeseen dynaaminen add row -tyylinen toteutus, jossa ylläpitäjä voi syöttää juuri niin monta raaka-ainetta reseptille kuin on tarvis.
-* Raaka-aineita ei pysty muokkaamaan reseptillä.
-* Hakutoiminnallisuutta ei ole aloitettu

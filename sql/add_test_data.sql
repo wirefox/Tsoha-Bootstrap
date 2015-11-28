@@ -1,5 +1,4 @@
-INSERT INTO RECIPE_USER (username, password, user_role) VALUES ('kokki3', '333', '0');
-INSERT INTO RECIPE_USER (username, password, user_role) VALUES ('mrchef', '101010', '0');
+INSERT INTO RECIPE_USER (username, password) VALUES ('kokki3', '333');
 
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('vehnäjauho', 'http://www.fineli.fi/food.php?foodid=110&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kevytmaito', 'http://www.fineli.fi/food.php?foodid=684&lang=fi');

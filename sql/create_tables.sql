@@ -3,7 +3,7 @@ CREATE TABLE Recipe_user
     id SERIAL PRIMARY KEY,                          -- yksikäsitteinen käyttäjän tunnus, generoituu automaattisesti
     username varchar(10) NOT NULL,
     password varchar(10) NOT NULL,
-    user_role INTEGER NOT NULL                          -- käyttäjän rooli, 0=normaali käyttäjä 1=ylläpitäjä
+--     user_role INTEGER NOT NULL                          -- käyttäjän rooli, toteutettaneen kun sovellukseen lisätään käyttäjän rekisteröitymismahdollisuus.
 );
 
 CREATE TABLE Ingredient

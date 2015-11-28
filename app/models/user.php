@@ -4,8 +4,7 @@ class User extends BaseModel {
 
     public $id,
             $username,
-            $password,
-            $user_role;
+            $password;
 
     public function __construct($attributes) {
         parent::__construct($attributes);

@@ -154,13 +154,6 @@ class Recipe extends BaseModel {
         if ($this->portion_amount == '' || $this->portion_amount == null) {
             $errors[] = 'Annosmäärä ei saa olla tyhjä.';
         }
-//        if (is_numeric($this->portion) < 1) {
-//            $errors[] = 'Annosmäärän tulee olla vähintään 1.';
-//        }
-
-        if (!is_numeric($this->portion_amount)) {
-            $errors[] = 'Annosmäärän tulee olla numero.';
-        }
         return $errors;
     }
 

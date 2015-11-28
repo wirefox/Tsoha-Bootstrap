@@ -38,7 +38,6 @@ class UnitController extends BaseController {
     }
 
     public static function show($unit_name) {
-        self::check_logged_in();
         $unit = Unit::find($unit_name);
         View::make('unit/show.html', array('unit' => $unit));
     }

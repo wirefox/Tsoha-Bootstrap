@@ -38,7 +38,6 @@ class IngredientController extends BaseController {
     }
 
     public static function show($ingredient_name) {
-        self::check_logged_in();
         $ingredient = Ingredient::find($ingredient_name);
         View::make('ingredient/show.html', array('ingredient' => $ingredient));
     }

@@ -23,6 +23,7 @@ INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('inkivääri', 'http
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('sitruuna', 'http://www.fineli.fi/food.php?foodid=11048&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('chili', 'http://www.fineli.fi/food.php?foodid=31557&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('mustapippuri', 'http://www.fineli.fi/food.php?foodid=31557&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kurkku', 'http://www.fineli.fi/food.php?foodid=346');
 
 INSERT INTO CATEGORY (category_name, information) VALUES ('Makeat leivonnaiset', 'Hyviä pullia ja muuta makeaa');
 INSERT INTO CATEGORY (category_name, information) VALUES ('Suolaiset leivonnaiset', 'Suolaisia piiraita ja kaikkea muuta pientä purtavaa');
@@ -38,6 +39,13 @@ INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture,
     VALUES ('Juustopiirakka', 'Suolaiset leivonnaiset', '8', 'Tee pohja. Mittaa jauhot, voi ja suola monitoimikoneen kulhoon. Sekoita tasaiseksi ja murumaiseksi. Voit tehdä taikinan myös käsin nyppimällä. Kun seos on tasaista, lisää sekaan pieni määrä kylmää vettä, jotta saat sopivan taikinapallon. Pingota leivinpaperi (n. 26 cm) irtopohjavuoan pohjalle ja voitele reunat. Kauli tai levitä taikina leivinpaperilla vuoratun irtopohjavuoan pohjalle ja reunoille jauhoja apuna käyttäen. Pane vuoka jääkaappiin noin 15 minuutiksi. Sekoita täytteen ainekset kevyesti keskenään. Ota taikinapohja kylmästä ja levitä sen päälle leivinpaperi. Kaada päälle paistokuulat tai kuivattuja herneitä ja esipaista pohjaa 225 asteessa noin 10 minuuttia. Nosta herneet leivinpapereineen pois pohjan päältä.Kaada täyte pohjalle ja jatka paistamista 200 asteisessa uunissa noin 40 minuuttia. Seuraa paistopintaa, jotta se ei paistu liikaa. Tarjoa piirakka jäähtyneenä smetanan, paistetun pekonin ja punasipulin kera. Koristele vuonankaalilla. ', 'http://is13.snstatic.fi/img/658/1443764586032.jpg', 'http://www.iltasanomat.fi/ruokala/resepti/art-1443764597334.html', NOW());
 INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) 
     VALUES ('Itämainen kana-pastasalaatti', 'Salaatit', '4', '1. Ruskista broilerinfileet nopeasti voi-öljyseoksessa molemmin puolin kauniin ruskeiksi. Mausta suolalla ja mustapippurilla. Sammuta liesi ja anna vetäytyä kannen alla kypsiksi salaatin teon ajan. 2. Keitä riisipastaa pakkauksen ohjeen mukaan ja huuhtele lopuksi kylmällä vedellä. Viipaloi kevätsipulit ja kurkut ohuiksi viipaleiksi. Suikaloi paprika. Valuta pastat ja sekoita muiden ainesten kanssa. 3. Leikkaa broilerit kuutioksi. Sekoita mangochutney, soijakastike ja chilitahna keskenään ja kääntele broilerit kastikkeessa. Nosta palat salaattiin.','http://kotiliesi.fi/wp-content/uploads/reseptit/186948-kanasalaatti-630x400.jpg','http://kotiliesi.fi/ruoka/reseptit/itamainen-kana-pastasalaatti', NOW());
+INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) 
+    VALUES ('Paistettu kurkku', 'Alkuruuat', '4', 'Viipaloi kurkku. Laita pannulle ja paista. Lisää suola ja pippuri.', 'http://www.biolan.fi/image/tuotekuvat/kurkku.jpg', 'http://www.biolan.fi/image/tuotekuvat/kurkku.jpg', NOW());
+INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) 
+    VALUES ('Paistettu kananmuna', 'Pääruuat', '1', 'Riko kananmuna pannulle. Paista ja mausta suolalla ja pippurilla', 'http://dunkel.fi/ranch/maatiaiskana/kuvat/paistettumuna.jpg', 'http://dunkel.fi/ranch/maatiaiskana/kuvat/paistettumuna.jpg', NOW());
+INSERT INTO RECIPE (recipe_name, category, portion_amount, instruction, picture, recipe_source, added) 
+    VALUES ('Kettuterrierin herkku', 'Alkuruuat', '1', 'Kuori omena. Poista siemenkota. Anna foxille ja katso kuinka nopeasti häviää.', 'http://puheenvuoro.uusisuomi.fi/sites/default/files/imagecache/content-img-thumb/domain-8086/kuvat/vanha_kettari.jpg', 'http://puheenvuoro.uusisuomi.fi/sites/default/files/imagecache/content-img-thumb/domain-8086/kuvat/vanha_kettari.jpg', NOW());
+
 
 INSERT INTO UNIT (unit_name, information)
     VALUES ('ml', 'millilitra');
@@ -94,3 +102,17 @@ INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient)
     VALUES ('2', '350', 'g', 'juusto');
 INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
     VALUES ('2', '1', 'ripaus', 'mustapippuri');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('4', '1', 'ripaus', 'suola');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('4', '1', 'ripaus', 'mustapippuri');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('4', '3', 'kpl', 'kurkku');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('5', '1', 'kpl', 'kananmuna');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('5', '1', 'ripaus', 'suola');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('5', '1', 'ripaus', 'mustapippuri');
+INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
+    VALUES ('6', '1', 'kpl', 'omena');

@@ -44,7 +44,30 @@
 
     <div class="form-group">
         <label>Annoksia</label>
-        <input type="text" name="portion_amount" class="form-control" value="{{attributes.portion_amount}}">
+        <!--<input type="text" name="portion_amount" class="form-control" value="{{attributes.portion_amount}}">-->
+        <!--</td>-->
+        <td>
+            <select class="form-control" name="portion_amount" value="{{attributes.portion_amount}}">
+                {% if attributes.portion_amount != null %}
+                <option value="{{attributes.portion_amount}}">{{attributes.portion_amount}}</option>
+                {% endif %}
+                {% if attributes.portion_amount == null %}
+                <option value="">valitse...</option>
+                {% else %}
+                <option value="{{attributes.portion_amount}}">{{attributes.portion_amount}}</option>
+                {% endif %}
+                <option value="{{1}}">{{1}}</option>
+                <option value="{{2}}">{{2}}</option>
+                <option value="{{3}}">{{3}}</option>
+                <option value="{{4}}">{{4}}</option>
+                <option value="{{5}}">{{5}}</option>
+                <option value="{{6}}">{{6}}</option>
+                <option value="{{7}}">{{7}}</option>
+                <option value="{{8}}">{{8}}</option>
+                <option value="{{9}}">{{9}}</option>
+                <option value="{{10}}">{{10}}</option>
+            </select>
+        <td>
     </div>
 
     <h3>Ainesosat <small> HUOM! Ainesosat lisätään reseptille reseptin tallentamisen jälkeen. </small> </h3> 

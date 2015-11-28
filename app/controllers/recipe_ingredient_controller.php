@@ -11,6 +11,7 @@ class RecipeIngredientController extends BaseController {
     }
 
     public static function storeNew() {
+        self::check_logged_in();
         $params = $_POST;
 
         $attributes = array(

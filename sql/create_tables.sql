@@ -2,7 +2,7 @@ CREATE TABLE Recipe_user
 (
     id SERIAL PRIMARY KEY,                          -- yksikäsitteinen käyttäjän tunnus, generoituu automaattisesti
     username varchar(10) NOT NULL,
-    password varchar(10) NOT NULL,
+    password varchar(10) NOT NULL
 --     user_role INTEGER NOT NULL                          -- käyttäjän rooli, toteutettaneen kun sovellukseen lisätään käyttäjän rekisteröitymismahdollisuus.
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE Unit
 CREATE TABLE Recipe_ingredient
 (
     recipe_id SERIAL REFERENCES Recipe(id) ON DELETE CASCADE,
-    amount varchar(10),
+    amount DECIMAL(6,2),
     unit varchar(30),
     ingredient varchar(50) REFERENCES Ingredient(ingredient_name) ON DELETE CASCADE
 --     CONSTRAINT pk_Recipe_ingredient PRIMARY KEY (recipe_id, ingredient)

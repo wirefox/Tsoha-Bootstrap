@@ -44,11 +44,12 @@ class RecipeIngredient extends BaseModel {
         if ($this->amount == '' || $this->amount == null) {
             $errors[] = 'Raaka-aineelle tulee antaa määrä.';
         }
-        if (is_numeric($this->amount) < 0.1) {
-            $errors[] = 'Raaka-aineen määrän tulee olla vähintään 0.1.';
+        if (!is_numeric($this->amount)) {
+            $errors[] = 'Raaka-aineen määrän tulee olla numero.';
         }
-        if (is_numeric($this->amount) > 9999) {
-            $errors[] = 'Raaka-aineen määrä saa olla enintään 9999.';
+
+        if ((float) ($this->amount) < 0.1 || (float) ($this->amount) > 9999) {
+            $errors[] = 'Raaka-aineen määrän tulee olla vähintään 0.1 ja enintään 9999.';
         }
         return $errors;
     }

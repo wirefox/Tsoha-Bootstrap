@@ -38,7 +38,6 @@ class CategoryController extends BaseController {
     }
 
     public static function show($category_name) {
-        self::check_logged_in();
         $category = Category::find($category_name);
         View::make('category/show.html', array('category' => $category));
     }

@@ -13,7 +13,7 @@ class Recipe extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array('validate_name', 'validate_category', 'validate_portion', 'validate_instruction', 'validate_picture', 'validate_recipe_source');
+        $this->validators = array('validate_name', 'validate_category', 'validate_portion_amount', 'validate_instruction', 'validate_picture', 'validate_recipe_source');
     }
 
     public static function all() {
@@ -149,10 +149,16 @@ class Recipe extends BaseModel {
         return $errors;
     }
 
-    public function validate_portion() {
+    public function validate_portion_amount() {
         $errors = array();
         if ($this->portion_amount == '' || $this->portion_amount == null) {
             $errors[] = 'Annosmäärä ei saa olla tyhjä.';
+        }
+        if (!is_numeric($this->portion_amount)) {
+            $errors[] = 'Annosmäärän tulee olla numero.';
+        }
+        if (($this->portion_amount) < 1 || ($this->portion_amount) > 100) {
+            $errors[] = 'Annosmäärän tulee olla vähintään 1 ja enintään 100.';
         }
         return $errors;
     }

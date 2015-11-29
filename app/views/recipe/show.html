@@ -32,7 +32,7 @@
 
 <ul>
     {% for recipe_ingredient in recipe_ingredients %}
-    <strong>{{recipe_ingredient.amount}} </strong> {{recipe_ingredient.unit}} {{recipe_ingredient.ingredient}} <br>   
+    <strong>{{+recipe_ingredient.amount}} </strong> {{recipe_ingredient.unit}} {{recipe_ingredient.ingredient}} <br>   
     {% endfor %}
 </ul>
 

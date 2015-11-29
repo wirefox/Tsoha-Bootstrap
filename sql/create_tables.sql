@@ -22,7 +22,7 @@ CREATE TABLE Recipe
 (
     id SERIAL PRIMARY KEY,
     recipe_name varchar(40) NOT NULL,
-    category varchar(30) REFERENCES Category(category_name),
+    category varchar(30) REFERENCES Category(category_name) ON DELETE CASCADE,
     portion_amount INTEGER,
     instruction varchar(3000),
     picture varchar(1000),
@@ -38,9 +38,8 @@ CREATE TABLE Unit
 
 CREATE TABLE Recipe_ingredient
 (
-    recipe_id SERIAL REFERENCES Recipe(id) ON DELETE CASCADE,
+    recipe_id SERIAL REFERENCES Recipe(id),
     amount DECIMAL(6,2),
-    unit varchar(30),
+    unit varchar(30) REFERENCES Unit(unit_name) ON DELETE CASCADE,
     ingredient varchar(50) REFERENCES Ingredient(ingredient_name) ON DELETE CASCADE
---     CONSTRAINT pk_Recipe_ingredient PRIMARY KEY (recipe_id, ingredient)
 );

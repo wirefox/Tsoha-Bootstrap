@@ -27,7 +27,7 @@ class RecipeIngredient extends BaseModel {
 
         return $recipeIngredients;
     }
-
+    
     public function save() {
         $query = DB::connection()->prepare
                 ('INSERT INTO Recipe_ingredient (recipe_id, amount, unit, ingredient) '

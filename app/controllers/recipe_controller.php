@@ -37,7 +37,7 @@ class RecipeController extends BaseController {
         if (count($errors) == 0) {
             $recipe->save();
 
-            Redirect::to('/recipe/' . $recipe->id, array('message' => 'Resepti on lisätty reseptipankkiin. Lisää seuraavaksi lisää raaka-aineita reseptille.'));
+            Redirect::to('/recipe/' . $recipe->id, array('message' => 'Resepti on lisätty reseptipankkiin. Lisää seuraavaksi raaka-aineita reseptille.'));
         } else {
             View::make('recipe/new.html', array('errors' => $errors, 'attributes' => $attributes,
                 'categories' => $categories));
@@ -101,4 +101,5 @@ class RecipeController extends BaseController {
 
         Redirect::to('/recipe', array('message' => 'Resepti on poistettu onnistuneesti.'));
     }
+
 }

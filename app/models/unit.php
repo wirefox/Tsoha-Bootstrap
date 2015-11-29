@@ -60,7 +60,6 @@ class Unit extends BaseModel {
 
     public function destroy() {
         $query = DB::connection()->prepare('DELETE FROM Unit WHERE unit_name = :unit_name');
-
         $query->execute(array('unit_name' => $this->unit_name));
     }
 

@@ -1,5 +1,7 @@
 # Tietokantasovelluksen esittelysivu
 
+HUOM!! Tällä hetkellä toteuttamatta: raaka-aineen, yksikön ja kategorian poisto, jos näitä on valittu reseptille. Näille tehdään virheiden käsittely!!!
+
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://ehaverin.users.cs.helsinki.fi/reseptipankki/)

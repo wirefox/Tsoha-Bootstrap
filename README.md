@@ -1,7 +1,5 @@
 # Tietokantasovelluksen esittelysivu
 
-HUOM!! Tällä hetkellä toteuttamatta: raaka-aineen, yksikön ja kategorian poisto, jos näitä on valittu reseptille. Näille tehdään virheiden käsittely!!!
-
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://ehaverin.users.cs.helsinki.fi/reseptipankki/)
@@ -26,11 +24,11 @@ Reseptipankki sisältää reseptejä. Jokainen resepti kuuluu yhteen kategoriaan
 Toimintoja:
 
 * raaka-aineen syöttö ja muutos
-* raaka-aineen poisto (vain mikäli sitä ei käytetä)
+* raaka-aineen poisto
 * mittayksikön syöttö ja muutos
-* mittayksikön poisto (vain mikäli sitä ei käytetä)
+* mittayksikön poisto
 * ruokalajikategorian lisääminen ja muutos
-* ruokalajikategorian poisto (vain mikäli sitä ei käytetä)
+* (ruokalajikategorian poisto)
 * reseptin lisäys
 * reseptin muokkaus ja poisto
 * raaka-aineen syöttäminen reseptille

@@ -10,7 +10,7 @@ class Category extends BaseModel {
     }
 
     public static function all() {
-        $query = DB::connection()->prepare('SELECT * FROM Category');
+        $query = DB::connection()->prepare('SELECT * FROM Category ORDER BY category_name ASC');
         $query->execute();
         $rows = $query->fetchAll();
         $categories = array();

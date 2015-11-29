@@ -10,7 +10,7 @@ class Unit extends BaseModel {
     }
 
     public static function all() {
-        $query = DB::connection()->prepare('SELECT * FROM Unit');
+        $query = DB::connection()->prepare('SELECT * FROM Unit ORDER BY unit_name ASC');
         $query->execute();
         $rows = $query->fetchAll();
         $units = array();

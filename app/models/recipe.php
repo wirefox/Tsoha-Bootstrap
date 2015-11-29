@@ -17,7 +17,7 @@ class Recipe extends BaseModel {
     }
 
     public static function all() {
-        $query = DB::connection()->prepare('SELECT * FROM Recipe');
+        $query = DB::connection()->prepare('SELECT * FROM Recipe ORDER BY recipe_name ASC');
         $query->execute();
 
         $rows = $query->fetchAll();

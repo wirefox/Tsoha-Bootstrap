@@ -70,7 +70,13 @@ class UnitController extends BaseController {
         self::check_logged_in();
         $unit = new Unit(array('unit_name' => $unit_name));
         $unit->destroy();
-        Redirect::to('/unit', array('message' => 'Mittayksikkö on poistettu reseptipankista.'));
+
+        $errors = $unit->errors();
+        if (count($errors) > 0) {
+            Redirect::to('/unit', array('message' => 'Mittayksikköä ei vois poistaa, koska se on jo käytössä reseptillä'));
+        } else {
+            Redirect::to('/unit', array('message' => 'Mittayksikkö on poistettu reseptipankista.'));
+        }
     }
 
 }

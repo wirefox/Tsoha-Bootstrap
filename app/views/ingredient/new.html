@@ -8,7 +8,6 @@
 <p class="alert alert-success">{{message}}</p>
 {% endif %}
 
-
 <form method="post" action="{{base_path}}/ingredient">
     <div class="form-group">
         <label>Nimi</label>
@@ -23,8 +22,6 @@
     <p>
         {{forms.save_button("#{base_path}/ingredient/#{ingredient.name}/save", 'Lisää')}}
     </p>
-
-
 
 </form>
 {% endblock %}

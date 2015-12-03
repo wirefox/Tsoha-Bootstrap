@@ -40,6 +40,6 @@ CREATE TABLE Recipe_ingredient
 (
     recipe_id SERIAL REFERENCES Recipe(id),
     amount DECIMAL(6,2),
-    unit varchar(30) REFERENCES Unit(unit_name) ON DELETE CASCADE,
-    ingredient varchar(50) REFERENCES Ingredient(ingredient_name) ON DELETE CASCADE
+    unit varchar(30) REFERENCES Unit(unit_name) ON DELETE RESTRICT,
+    ingredient varchar(50) REFERENCES Ingredient(ingredient_name) ON DELETE RESTRICT
 );

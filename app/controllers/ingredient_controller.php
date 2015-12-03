@@ -69,7 +69,13 @@ class IngredientController extends BaseController {
         self::check_logged_in();
         $ingredient = new Ingredient(array('ingredient_name' => $ingredient_name));
         $ingredient->destroy();
-        Redirect::to('/ingredient', array('message' => 'Raaka-aine on poistettu reseptipankista.'));
+
+        $errors = $ingredient->errors();
+        if (count($errors) > 0) {
+            Redirect::to('/ingredient', array('message' => 'Mittayksikköä ei vois poistaa, koska se on jo käytössä reseptillä'));
+        } else {
+            Redirect::to('/ingredient', array('message' => 'Raaka-aine on poistettu reseptipankista.'));
+        }
     }
 
 }

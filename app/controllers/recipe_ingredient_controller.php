@@ -10,7 +10,7 @@ class RecipeIngredientController extends BaseController {
         View::make('recipe_ingredient/new.html', array('recipe' => $recipe, 'ingredients' => $ingredients, 'units' => $units));
     }
 
-    public static function storeNew() {
+    public static function storeNewRecipeIngredient() {
         self::check_logged_in();
         $params = $_POST;
 

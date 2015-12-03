@@ -7,7 +7,6 @@ $routes->get('/login', function() {
 });
 
 $routes->post('/login', function() {
-// Kirjautumisen käsittely
     UserController::handle_login();
 });
 
@@ -85,12 +84,12 @@ $routes->post('/ingredient/:ingredient_name/destroy', function($ingredient_name)
 });
 
 // RECIPE_INGREDIENT:
-//Tämä reitti ei tällä hetkellä käytössä, koska raaka-aineita ei lisätä reseptillä(?):
 $routes->get('/recipe/:id/recipe_ingredient', function($id) {
     RecipeIngredientController::create($id);
 });
+
 $routes->post('/recipe/:id/recipe_ingredient', function($id) {
-    RecipeIngredientController::storeNew($id);
+    RecipeIngredientController::storeNewRecipeIngredient($id);
 });
 
 // CATEGORY:
@@ -163,19 +162,3 @@ $routes->get('/hiekkalaatikko', function() {
 $routes->get('/login', function() {
     HelloWorldController::login();
 });
-
-//VANHAT:
-//$routes->get('/', function() {
-//    HelloWorldController::index();
-//});
-//$routes->get('/recipe', function() {
-//    HelloWorldController::recipe_list();
-//});
-//$routes->get('/recipe/1', function() {
-//    HelloWorldController::recipe_show();
-//});
-//$routes->get('/recipe/2', function() {
-//    HelloWorldController::recipe_edit();
-//});
-//
-//HelloWorld kontrollerin:

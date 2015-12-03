@@ -32,7 +32,6 @@ class Category extends BaseModel {
                 'category_name' => $row['category_name'],
                 'information' => $row['information']
             ));
-
             return $category;
         }
         return null;

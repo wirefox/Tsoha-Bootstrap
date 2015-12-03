@@ -59,8 +59,18 @@ class Unit extends BaseModel {
     }
 
     public function destroy() {
-        $query = DB::connection()->prepare('DELETE FROM Unit WHERE unit_name = :unit_name');
-        $query->execute(array('unit_name' => $this->unit_name));
+        try {
+            $query = DB::connection()->prepare('DELETE FROM Unit WHERE unit_name = :unit_name');
+            $query->execute(array('unit_name' => $this->unit_name));
+        } catch (Exception $ex) {
+            $this->validators = array('validate_destroy');
+        }
+    }
+
+    public function validate_destroy() {
+        $errors = array();
+        $errors[] = 'Mittayksikköä ei voi poistaa, koska se on jo käytössä reseptillä.';
+        return $errors;
     }
 
     public function validate_unit_name() {

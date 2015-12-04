@@ -76,25 +76,21 @@ class Ingredient extends BaseModel {
     public function validate_ingredient_name() {
         $errors = array();
         if ($this->ingredient_name == '' || $this->ingredient_name == null) {
-            $errors[] = 'Nimi ei saa olla tyhjä.';
+            $errors[] = 'Raaka-aineen nimi ei saa olla tyhjä.';
         }
         if (strlen($this->ingredient_name) < 3) {
-            $errors[] = 'Nimen pituuden tulee olla vähintään 3 merkkiä.';
+            $errors[] = 'Raaka-aineen nimen pituuden tulee olla vähintään 3 merkkiä.';
         }
         if (strlen($this->ingredient_name) > 50) {
-            $errors[] = 'Nimen pituuden tulee olla enintään 50 merkkiä.';
+            $errors[] = 'Raaka-aineen nimen pituus saa olla enintään 50 merkkiä.';
         }
         return $errors;
     }
 
     public function validate_nutrition() {
         $errors = array();
-        if ($this->nutrition == '' || $this->nutrition == null) {
-            $errors[] = 'Kenttä ei saa olla tyhjä.';
-        }
-
         if (strlen($this->nutrition) > 50) {
-            $errors[] = 'Nimen pituuden tulee olla enintään 50 merkkiä.';
+            $errors[] = 'Raaka-aineen ravitsemustieto saa olla enintään 50 merkkiä.';
         }
         return $errors;
     }

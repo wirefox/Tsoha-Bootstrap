@@ -112,28 +112,41 @@ class Recipe extends BaseModel {
             'instruction' => $this->instruction,
             'picture' => $this->picture,
             'recipe_source' => $this->recipe_source));
-
-//        $row = $query->fetch(); TÄMÄ RIVI PITÄÄ EHKÄ LAITTAA TAKAISIN (POISTETTU 20.11)
-        //$this->id = $row['id'];
-//        Kint::dump($row);
     }
+
+//    public function destroy() {
+//        $query = DB::connection()->prepare('DELETE FROM Recipe WHERE id = :id');
+//        $query->execute(array('id' => $this->id));
+//    }
 
     public function destroy() {
-        $query = DB::connection()->prepare('DELETE FROM Recipe WHERE id = :id');
-
-        $query->execute(array('id' => $this->id));
+        $errors = array();
+        try {
+            $query = DB::connection()->prepare('DELETE FROM Recipe WHERE id = :id');
+            $query->execute(array('id' => $this->id));
+        } catch (Exception $ex) {
+            $errors[] = 'Reseptiä ei voi poistaa, koska sille on lisätty raaka-aineita (= tämän sovellusversion ominaisuus).';
+            return $errors;
+        }
+        return $errors;
     }
+
+//    public function validate_destroy() {
+//        $errors = array();
+//        $errors[] = 'Reseptiä ei voi poistaa, koska sille on lisätty raaka-aineita (= tämän sovellusversion ominaisuus).';
+//        return $errors;
+//    }
 
     public function validate_name() {
         $errors = array();
         if ($this->recipe_name == '' || $this->recipe_name == null) {
-            $errors[] = 'Nimi ei saa olla tyhjä.';
+            $errors[] = 'Reseptin nimi ei saa olla tyhjä.';
         }
         if (strlen($this->recipe_name) < 3) {
-            $errors[] = 'Nimen pituuden tulee olla vähintään 3 merkkiä.';
+            $errors[] = 'Reseptin nimen pituuden tulee olla vähintään 3 merkkiä.';
         }
         if (strlen($this->recipe_name) > 50) {
-            $errors[] = 'Nimen pituuden tulee olla enintään 50 merkkiä.';
+            $errors[] = 'Reseptin nimen pituus saa olla enintään 50 merkkiä.';
         }
         return $errors;
     }
@@ -172,7 +185,7 @@ class Recipe extends BaseModel {
             $errors[] = 'Valmistusohjeen pituuden tulee olla vähintään 3 merkkiä.';
         }
         if (strlen($this->instruction) > 3000) {
-            $errors[] = 'Valmistusohjeen pituuden tulee olla enintään 3000 merkkiä.';
+            $errors[] = 'Valmistusohjeen pituus saa olla enintään 3000 merkkiä.';
         }
         return $errors;
     }
@@ -183,7 +196,7 @@ class Recipe extends BaseModel {
             $errors[] = 'Kuvan lähdeviite ei saa olla tyhjä.';
         }
         if (strlen($this->picture) < 3) {
-            $errors[] = 'Kuvan lähdeviitteen pituuden tulee olla vähintään 3 merkkiä.';
+            $errors[] = 'Kuvan lähdeviitteen pituus saa olla vähintään 3 merkkiä.';
         }
         return $errors;
     }

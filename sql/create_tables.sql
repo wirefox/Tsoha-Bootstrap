@@ -3,7 +3,6 @@ CREATE TABLE Recipe_user
     id SERIAL PRIMARY KEY,                          -- yksikäsitteinen käyttäjän tunnus, generoituu automaattisesti
     username varchar(10) NOT NULL,
     password varchar(10) NOT NULL
---     user_role INTEGER NOT NULL                          -- käyttäjän rooli, toteutettaneen kun sovellukseen lisätään käyttäjän rekisteröitymismahdollisuus.
 );
 
 CREATE TABLE Ingredient
@@ -22,8 +21,8 @@ CREATE TABLE Recipe
 (
     id SERIAL PRIMARY KEY,
     recipe_name varchar(40) NOT NULL,
-    category varchar(30) REFERENCES Category(category_name) ON DELETE CASCADE,
-    portion_amount INTEGER,
+    category varchar(30) REFERENCES Category(category_name),
+    portion_amount DECIMAL(5,2),
     instruction varchar(3000),
     picture varchar(1000),
     recipe_source varchar(1000),

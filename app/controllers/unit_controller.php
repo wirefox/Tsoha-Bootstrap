@@ -31,7 +31,7 @@ class UnitController extends BaseController {
             $unit->save();
             Redirect::to('/unit', array('message' => 'Mittayksikkö lisätty reseptipankkiin.'));
         } else if ($duplicate != null) {
-            View::make('unit/new.html', array('attributes' => $attributes, 'message' => 'Mittayksikkö on jo reseptipankissa.'));
+            View::make('unit/new.html', array('attributes' => $attributes, 'message' => 'Mittayksikkö on jo aiemmin lisätty reseptipankissa.'));
         } else {
             View::make('unit/new.html', array('errors' => $errors, 'attributes' => $attributes));
         }
@@ -73,7 +73,7 @@ class UnitController extends BaseController {
 
         $errors = $unit->errors();
         if (count($errors) > 0) {
-            Redirect::to('/unit', array('message' => 'Mittayksikköä ei vois poistaa, koska se on jo käytössä reseptillä'));
+            Redirect::to('/unit', array('errors' => $errors));
         } else {
             Redirect::to('/unit', array('message' => 'Mittayksikkö on poistettu reseptipankista.'));
         }

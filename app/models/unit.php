@@ -76,19 +76,21 @@ class Unit extends BaseModel {
     public function validate_unit_name() {
         $errors = array();
         if ($this->unit_name == '' || $this->unit_name == null) {
-            $errors[] = 'Nimi ei saa olla tyhjä.';
+            $errors[] = 'Mittayksikön nimi ei saa olla tyhjä.';
         }
         if (strlen($this->unit_name) > 50) {
-            $errors[] = 'Nimen pituuden tulee olla enintään 50 merkkiä.';
+            $errors[] = 'Mittayksikön nimen pituus saa olla enintään 50 merkkiä.';
         }
         return $errors;
     }
 
     public function validate_information() {
         $errors = array();
-
+        if ($this->information == '' || $this->information == null) {
+            $errors[] = 'Mittayksikön lisätietokenttä ei saa olla tyhjä.';
+        }
         if (strlen($this->information) > 50) {
-            $errors[] = 'Selitteen pituuden tulee olla enintään 50 merkkiä.';
+            $errors[] = 'Mittayksikön lisätiedon pituus saa olla enintään 50 merkkiä.';
         }
         return $errors;
     }

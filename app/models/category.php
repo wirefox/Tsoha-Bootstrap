@@ -80,11 +80,11 @@ class Category extends BaseModel {
     public function validate_information() {
         $errors = array();
         if ($this->information == '' || $this->information == null) {
-            $errors[] = 'Kenttä ei saa olla tyhjä.';
+            $errors[] = 'Kategorian lisätietokenttä ei saa olla tyhjä.';
         }
 
-        if (strlen($this->information) > 50) {
-            $errors[] = 'Nimen pituuden tulee olla enintään 50 merkkiä.';
+        if (strlen($this->information) > 300) {
+            $errors[] = 'Kategorian lisätiedon pituus saa olla enintään 300 merkkiä.';
         }
         return $errors;
     }

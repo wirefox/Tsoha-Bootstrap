@@ -12,7 +12,7 @@
 
 <h1>{{recipe.recipe_name}} </h1>
 
-<h4> {{recipe.portion_amount}} 
+<h4> {{+recipe.portion_amount}} 
     {% if recipe.portion_amount == 1 %} annos
     {% else %} annosta
     {% endif %}

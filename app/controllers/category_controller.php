@@ -31,7 +31,7 @@ class CategoryController extends BaseController {
             $category->save();
             Redirect::to('/category', array('message' => 'Kategoria lisätty reseptipankkiin.'));
         } else if ($duplicate != null) {
-            View::make('category/new.html', array('attributes' => $attributes, 'message' => 'Kategoria on jo olemassa.'));
+            View::make('category/new.html', array('attributes' => $attributes, 'message' => 'Kategoria on jo aiemmin lisätty reseptipankkiin.'));
         } else {
             View::make('category/new.html', array('errors' => $errors, 'attributes' => $attributes));
         }

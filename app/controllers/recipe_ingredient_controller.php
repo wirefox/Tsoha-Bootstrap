@@ -36,10 +36,6 @@ class RecipeIngredientController extends BaseController {
         }
     }
 
-    public static function destroy() {
-        self::check_logged_in();
-    }
-
 // METODI, JOLLA TALLENNETTAISIIN RESEPTIN LUOMISEN YHTEYDESSÄ RAAKA-AINEITA; EI TOTEUTETA TÄMÄN KURSSIN PUITTEISSA.
 //    public static function store($recipe_id, $amount, $unit, $ingredient) {
 //

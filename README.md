@@ -3,10 +3,6 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://ehaverin.users.cs.helsinki.fi/reseptipankki/)
- * [Linkki login-sivulle](http://ehaverin.users.cs.helsinki.fi/reseptipankki/login)
- * [Linkki reseptien listaussivulle](http://ehaverin.users.cs.helsinki.fi/reseptipankki/recipe)
- * [Linkki resepti-sivulle](http://ehaverin.users.cs.helsinki.fi/reseptipankki/recipe/1)
- * [Linkki tietokannan tauluihin ja niiden sisältöihin] (http://ehaverin.users.cs.helsinki.fi/reseptipankki/tietokantayhteys)
 * [Linkki dokumentaatiooni](https://github.com/wirefox/reseptipankki/blob/master/doc/dokumentaatio.pdf)
 
 ## Käyttäjätunnukset sovellukseen:
@@ -19,18 +15,17 @@ Yleisiä linkkejä:
 
 Reseptipankki
 
-Reseptipankki sisältää reseptejä. Jokainen resepti kuuluu yhteen kategoriaan (alkuruoka, keitto, salaatti, pääruoka, jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje. Ohjeita voi hakea ruokalajin nimen, raaka-aineen tai ruokalajikategorian perusteella (tällä hetkellä toteutettu vain nimen perusteella). Resepteissä on  kuva valmiista ruoka-annoksesta.
+Reseptipankki sisältää reseptejä. Jokainen resepti kuuluu yhteen kategoriaan (alkuruoka, keitto, salaatti, pääruoka, jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje. Ohjeita voi hakea reseptin nimen perusteella. Resepteissä voi olla kuva valmiista ruoka-annoksesta.
 
 Toimintoja:
 
-* raaka-aineen syöttö ja muutos
-* raaka-aineen poisto
-* mittayksikön syöttö ja muutos
-* mittayksikön poisto
-* ruokalajikategorian lisääminen ja muutos
-* (ruokalajikategorian poisto)
-* reseptin lisäys
-* reseptin muokkaus ja poisto
+* raaka-aineen lisääminen ja sen ravintoainetiedon  muokkaaminen
+* raaka-aineen poistaminen (jos sitä ei ole jo lisätty reseptille)
+* raaka-aineen mittayksikön lisääminen ja sen lisätiedon muokkaaminen
+* raaka-aineen mittayksikön poistaminen (jos sitä ei ole jo lisätty reseptille)
+* ruokalajikategorian lisääminen ja sen lisätiedon muokkaaminen
+* reseptin lisääminen ja sen muokkaaminen
 * raaka-aineen syöttäminen reseptille
+* reseptin poistaminen (jos sille ei ole lisätty raaka-aineita; tässä sovellusversiossa)
 * reseptin haku
 * reseptien katselu

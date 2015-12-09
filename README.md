@@ -3,6 +3,7 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://ehaverin.users.cs.helsinki.fi/reseptipankki/)
+ * [Linkki tietokantakuvaukseen](http://ehaverin.users.cs.helsinki.fi/reseptipankki/tietokantayhteys)
 * [Linkki dokumentaatiooni](https://github.com/wirefox/reseptipankki/blob/master/doc/dokumentaatio.pdf)
 
 ## Käyttäjätunnukset sovellukseen:
@@ -11,9 +12,7 @@ Yleisiä linkkejä:
  * käyttäjätunnus: kokki3
  * salasana: 333
 
-## Työn aihe:
-
-Reseptipankki
+## Työn aihe: Reseptipankki
 
 Reseptipankki sisältää reseptejä. Jokainen resepti kuuluu yhteen kategoriaan (alkuruoka, keitto, salaatti, pääruoka, jälkiruoka, suolainen leivonnainen ja makea leivonnainen). Resepteissä esitetään raaka-aineet ja niiden määrät sekä valmistusohje. Ohjeita voi hakea reseptin nimen perusteella. Resepteissä voi olla kuva valmiista ruoka-annoksesta.
 

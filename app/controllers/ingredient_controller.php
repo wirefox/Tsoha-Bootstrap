@@ -68,9 +68,8 @@ class IngredientController extends BaseController {
     public static function destroy($ingredient_name) {
         self::check_logged_in();
         $ingredient = new Ingredient(array('ingredient_name' => $ingredient_name));
-        $ingredient->destroy();
+        $errors = $ingredient->destroy();
 
-        $errors = $ingredient->errors();
         if (count($errors) > 0) {
             Redirect::to('/ingredient', array('errors' => $errors));
         } else {

@@ -69,9 +69,8 @@ class UnitController extends BaseController {
     public static function destroy($unit_name) {
         self::check_logged_in();
         $unit = new Unit(array('unit_name' => $unit_name));
-        $unit->destroy();
+        $errors = $unit->destroy();
 
-        $errors = $unit->errors();
         if (count($errors) > 0) {
             Redirect::to('/unit', array('errors' => $errors));
         } else {

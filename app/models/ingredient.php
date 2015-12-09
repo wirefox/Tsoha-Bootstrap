@@ -64,13 +64,10 @@ class Ingredient extends BaseModel {
             $query->execute(array('ingredient_name' => $this->ingredient_name));
         } catch (Exception $ex) {
             $this->validators = array('validate_destroy');
+            $errors = array();
+            $errors[] = 'Raaka-ainetta ei voi poistaa, koska se on jo käytössä reseptillä.';
+            return $errors;
         }
-    }
-
-    public function validate_destroy() {
-        $errors = array();
-        $errors[] = 'Raaka-ainetta ei voi poistaa, koska se on jo käytössä reseptillä.';
-        return $errors;
     }
 
     public function validate_ingredient_name() {

@@ -15,7 +15,7 @@ $routes->post('/logout', function() {
 });
 
 //RECIPE:
-//Etusivu (reseptien listaussivu)
+//Etusivu 
 $routes->get('/', function() {
     RecipeController::index();
 });

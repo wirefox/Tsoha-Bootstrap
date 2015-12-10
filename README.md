@@ -1,6 +1,6 @@
 # Tietokantasovelluksen esittelysivu
 
-Linkit sovellukseen ja dokumentaatioon:
+## Linkit sovellukseen ja dokumentaatioon:
 
 * [Linkki sovellukseeni](http://ehaverin.users.cs.helsinki.fi/reseptipankki/)
  * [Linkki tietokantakuvaukseen](http://ehaverin.users.cs.helsinki.fi/reseptipankki/tietokantayhteys)

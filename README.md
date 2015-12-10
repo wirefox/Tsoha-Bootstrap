@@ -25,6 +25,6 @@ Toimintoja:
 * ruokalajikategorian lisääminen ja sen lisätiedon muokkaaminen
 * reseptin lisääminen ja sen muokkaaminen
 * raaka-aineen syöttäminen reseptille
-* reseptin poistaminen (jos sille ei ole lisätty raaka-aineita; tässä sovellusversiossa)
+* reseptin poistaminen
 * reseptin haku
 * reseptien katselu

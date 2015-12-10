@@ -94,41 +94,13 @@ class RecipeController extends BaseController {
         View::make('recipe/search.html', array('search' => $search, 'recipes' => $recipes));
     }
 
-//    public static function destroy($id) {
-//        self::check_logged_in();
-//
-//        $recipe = new Recipe(array('id' => $id));
-//        $recipe->destroy();
-//
-//        Redirect::to('/recipe', array('message' => 'Resepti on poistettu onnistuneesti.'));
-//    }
-
-//    public static function destroy($id) {
-//        self::check_logged_in();
-//
-//        $recipe = new Recipe(array('id' => $id));
-//        $recipe->destroy();
-//
-//        $errors = $recipe->validate_destroy();
-////        $errors = $recipe->errors();
-//        if (count($errors) > 0) {
-//            Redirect::to('/recipe', array('errors' => $errors));
-//        } else {
-//            Redirect::to('/recipe', array('message' => 'Resepti on poistettu onnistuneesti.'));
-//        }
-//    }
-     public static function destroy($id) {
+    public static function destroy($id) {
         self::check_logged_in();
 
         $recipe = new Recipe(array('id' => $id));
-        $errors = $recipe->destroy();
+        $recipe->destroy();
 
-//        $errors = $recipe->errors();
-        if (count($errors) > 0) {
-            Redirect::to('/recipe', array('errors' => $errors));
-        } else {
-            Redirect::to('/recipe', array('message' => 'Resepti on poistettu onnistuneesti.'));
-        }
+        Redirect::to('/recipe', array('message' => 'Resepti on poistettu onnistuneesti.'));
     }
 
 }

@@ -28,6 +28,8 @@ INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('vaniljasokeri', 'ht
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('leivinjauhe', 'http://www.fineli.fi/food.php?foodid=74&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('kana', 'http://www.fineli.fi/food.php?foodid=750&lang=fi');
 INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('jauheliha', 'http://www.fineli.fi/food.php?foodid=11562&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('riisi', 'http://www.fineli.fi/food.php?foodid=1370&lang=fi');
+INSERT INTO INGREDIENT (ingredient_name, nutrition) VALUES ('pasta', 'http://www.fineli.fi/food.php?foodid=30357&lang=fi');
 
 INSERT INTO CATEGORY (category_name, information) VALUES ('Makeat leivonnaiset', 'Hyviä pullia ja muuta makeaa');
 INSERT INTO CATEGORY (category_name, information) VALUES ('Suolaiset leivonnaiset', 'Suolaisia piiraita ja kaikkea muuta pientä purtavaa');
@@ -142,7 +144,6 @@ INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient)
     VALUES ('5', '1', 'ripaus', 'mustapippuri');
 INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
     VALUES ('6', '1', 'kpl', 'omena');
-
 INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 
     VALUES ('7', '3', 'kpl', 'kananmuna');
 INSERT INTO RECIPE_INGREDIENT  (recipe_id, amount, unit, ingredient) 

@@ -21,12 +21,13 @@ CREATE TABLE Recipe
 (
     id SERIAL PRIMARY KEY,
     recipe_name varchar(40) NOT NULL,
-    category varchar(30) REFERENCES Category(category_name),
+    category varchar(30),
     portion_amount DECIMAL(5,2),
     instruction varchar(3000),
     picture varchar(1000),
     recipe_source varchar(1000),
-    added DATE
+    added DATE,
+    FOREIGN KEY(category) REFERENCES Category(category_name)
 );
 
 CREATE TABLE Unit
@@ -37,8 +38,11 @@ CREATE TABLE Unit
 
 CREATE TABLE Recipe_ingredient
 (
-    recipe_id SERIAL REFERENCES Recipe(id),
+    recipe_id integer,
     amount DECIMAL(6,2),
-    unit varchar(30) REFERENCES Unit(unit_name) ON DELETE RESTRICT,
-    ingredient varchar(50) REFERENCES Ingredient(ingredient_name) ON DELETE RESTRICT
+    unit varchar(30),
+    ingredient varchar(50),
+    FOREIGN KEY(recipe_id) REFERENCES Recipe(id) ON DELETE SET NULL,
+    FOREIGN KEY(unit) REFERENCES Unit(unit_name) ON DELETE RESTRICT,
+    FOREIGN KEY(ingredient) REFERENCES Ingredient(ingredient_name) ON DELETE RESTRICT
 );

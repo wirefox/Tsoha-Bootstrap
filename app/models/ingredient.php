@@ -86,8 +86,8 @@ class Ingredient extends BaseModel {
 
     public function validate_nutrition() {
         $errors = array();
-        if (strlen($this->nutrition) > 50) {
-            $errors[] = 'Raaka-aineen ravitsemustieto saa olla enintään 50 merkkiä.';
+        if (strlen($this->nutrition) > 300) {
+            $errors[] = 'Raaka-aineen ravitsemustieto saa olla enintään 300 merkkiä.';
         }
         return $errors;
     }

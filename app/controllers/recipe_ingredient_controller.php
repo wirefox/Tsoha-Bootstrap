@@ -52,7 +52,6 @@ class RecipeIngredientController extends BaseController {
 //            $recipe_ingredient->save();
 //        } else {
 //            View::make('recipe/new.html', array('errors' => $errors));
-//            //MITEN SAAN VIRHEET LÄHETETTYÄ RECIPECONTROLLERILLE, JOKA OIKEASTI PYYTÄÄ NEW-NÄKYMÄN UUDELLEEN??
 //        }
 //    }
 }

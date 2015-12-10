@@ -114,28 +114,10 @@ class Recipe extends BaseModel {
             'recipe_source' => $this->recipe_source));
     }
 
-//    public function destroy() {
-//        $query = DB::connection()->prepare('DELETE FROM Recipe WHERE id = :id');
-//        $query->execute(array('id' => $this->id));
-//    }
-
     public function destroy() {
-        $errors = array();
-        try {
-            $query = DB::connection()->prepare('DELETE FROM Recipe WHERE id = :id');
-            $query->execute(array('id' => $this->id));
-        } catch (Exception $ex) {
-            $errors[] = 'Reseptiä ei voi poistaa, koska sille on lisätty raaka-aineita (= tämän sovellusversion ominaisuus).';
-            return $errors;
-        }
-        return $errors;
+        $query = DB::connection()->prepare('DELETE FROM Recipe WHERE id = :id');
+        $query->execute(array('id' => $this->id));
     }
-
-//    public function validate_destroy() {
-//        $errors = array();
-//        $errors[] = 'Reseptiä ei voi poistaa, koska sille on lisätty raaka-aineita (= tämän sovellusversion ominaisuus).';
-//        return $errors;
-//    }
 
     public function validate_name() {
         $errors = array();
